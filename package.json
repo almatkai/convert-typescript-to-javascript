@@ -1,0 +1,79 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "convert-typescript-to-javascript",
+  "title": "Convert TypeScript to JavaScript",
+  "description": "Remove type information from TypeScript code to make it compatible with JavaScript REPLs and other applications",
+  "icon": "icon.png",
+  "author": "almatkai",
+  "access": "public",
+  "keywords": [
+    "typescript",
+    "javascript",
+    "ts",
+    "js",
+    "clipboard"
+  ],
+  "categories": [
+    "Developer Tools"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "paste-from-clipboard",
+      "title": "Convert & Paste as JavaScript",
+      "description": "Retrieve clipboard content, transform it to JavaScript, and paste it",
+      "mode": "no-view",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ]
+    },
+    {
+      "name": "copy-to-clipboard",
+      "title": "Copy TypeScript as JavaScript",
+      "description": "Get selected text from the active application, transform it to JavaScript, and keep it in the clipboard",
+      "mode": "no-view",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ]
+    }
+  ],
+  "dependencies": {
+    "@babel/core": "^7.22.5",
+    "@babel/preset-typescript": "^7.22.5",
+    "@raycast/api": "^1.104.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsx": "^4.22.4",
+    "typescript": "^5.9.3"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "id": "com.tezbar.convert-typescript-to-javascript",
+  "platforms": [
+    "macOS",
+    "Windows"
+  ],
+  "version": "0.1.0",
+  "tezbar": {
+    "schemaVersion": 1,
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "linuxStatus": "coming-soon",
+    "repository": "https://github.com/almatkai/convert-typescript-to-javascript",
+    "upstream": {
+      "repository": "https://github.com/raycast/extensions",
+      "path": "extensions/convert-typescript-to-javascript",
+      "commit": "6734d85992290066fd31a7f5bee3cca3d3545a1a"
+    }
+  }
+}
