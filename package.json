@@ -3,7 +3,7 @@
   "name": "convert-typescript-to-javascript",
   "title": "Convert TypeScript to JavaScript",
   "description": "Remove type information from TypeScript code to make it compatible with JavaScript REPLs and other applications",
-  "icon": "icon.png",
+  "icon": "assets/icon.png",
   "author": "almatkai",
   "access": "public",
   "keywords": [
