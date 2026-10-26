@@ -1,0 +1,28 @@
+[package]
+name = "tezbar-convert-typescript-to-javascript"
+version = "2.0.0"
+edition = "2021"
+rust-version = "1.85"
+license = "MIT"
+publish = false
+
+[dependencies]
+tezbar-extension-sdk = { git = "https://github.com/almatkai/tezbar-extension-sdk-rust", rev = "e955911f0bf5b558f9d3eb5183df0adc95c22af2", version = "=0.1.1" }
+serde_json = "=1.0.140"
+tokio = { version = "=1.44.2", features = ["rt-multi-thread", "macros", "time"] }
+oxc_allocator = "=0.58.0"
+oxc_ast = "=0.58.0"
+oxc_parser = "=0.58.0"
+oxc_semantic = "=0.58.0"
+oxc_syntax = "=0.58.0"
+oxc_span = "=0.58.0"
+oxc_transformer = { path = "vendor/oxc_transformer", version = "=0.58.0" }
+oxc_codegen = { path = "vendor/oxc_codegen", version = "=0.58.0" }
+oxc_ast_visit = "=0.58.0"
+# 2.3 changed Version field widths under a semver-compatible release.
+oxc-browserslist = "=2.0.0"
+
+[profile.release]
+strip = true
+lto = "thin"
+codegen-units = 1

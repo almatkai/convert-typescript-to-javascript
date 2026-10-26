@@ -1,0 +1,22 @@
+{
+  "commit": "f80a47f6d462b29e71f9c282bce8e84bd6ef923e",
+  "files": {
+    ".eslintrc.json": "739c28ed0495cec767903956a808561ca22d332ecb214ce609d63a82b678d516",
+    ".gitignore": "b027adcbb6131ef49be335e9a699657351ca3d5bb2b474379634d1714f5a585b",
+    ".prettierrc": "af858765de11954366be23467b95bae5e1a86818411c6723df7542cea9ffd521",
+    "CHANGELOG.md": "a3a452e95f5364e06aeb33182102c9eb9c758ac8603cb140117a7ae064eda7fa",
+    "LICENSE": "1d7dbdbcd4fe14dfa08334fab20bffad23c1290f195792a3a4420dadf9912f81",
+    "README.md": "1dd473fd531d61fe51daa85e386a778703aab55116578413abaf5cbfa5c1650d",
+    "assets/icon.png": "85b7bf3d3bc91f315896d165b95e6d40ef72ac71a6ef0e861f1e81a4f675d5bd",
+    "package-lock.json": "deb06b5aca14d6530b6c5f53b7fad789ad8ced2f7f7835dac6a4428ecdbe541c",
+    "package.json": "9e1f6ba64afe38c72df6b65c1f09b431762b7f1ed19b10be3cb26cbd2c46d426",
+    "raycast-env.d.ts": "4a1d9abf336b9b20927a3cb9bfd89fbb31d9a1b0c447359b72a451d5c787c013",
+    "src/copy-to-clipboard.ts": "28a87b19cdd5f8030c8a7f1f4281eb55629c42f366487c38216f3fd8143aaf1c",
+    "src/internal/typescript-to-javascript.ts": "937415d5def4688e0cf9afdef1c657dc6c929ee34e1a72100d9fa4e554eedfae",
+    "src/paste-from-clipboard.ts": "713cb895e0e28efba759f9e24d39ec03ab20d3a8fb9073c340cbc8d1b366bc6e",
+    "src/types/@babel/preset-typescript.d.ts": "10e2e27cc644ca25710b17bf92c86df7ac766e6142f7ac22b84f5534d01ec591",
+    "src/types/babel.d.ts": "2998e11e3507f50e5f2c63bc6ef9cc25d6b5afa461f7a669ff1719ddd010055b",
+    "test/smoke.test.ts": "03cbb97d85d73e2050495b966b36c73d48493172f90e17ea7cbdd4266d516761",
+    "tsconfig.json": "bb151e8c2e5442f6f9e42b27c08d88b0f7d2c5c127268ce0aedab2ef964b1eee"
+  }
+}

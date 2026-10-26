@@ -1,0 +1,208 @@
+{
+  "status": "LOCAL GATES GREEN — source candidate for parent review; host patches unapplied; desktop acceptance not-run",
+  "sourceCommit": "f80a47f6d462b29e71f9c282bce8e84bd6ef923e",
+  "total": 343,
+  "exact": 343,
+  "failures": [],
+  "priorRound": {
+    "total": 264,
+    "exact": 254,
+    "resolvedFailures": [
+      {
+        "name": "enum-binding-dynamic-nan",
+        "priorCause": "Nonfinite compatibility rewriting still treats a lexically bound nonliteral NaN as an enum member. Native binding facts currently cover primitive initializers only. Upstream OXC also special-cases NaN before binding resolution.",
+        "priorNative": {
+          "code": "const NaN = foo();\nvar E = function (E) {\n  E[E[\"A\"] = E.NaN] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+        },
+        "current": {
+          "name": "enum-binding-dynamic-nan",
+          "source": "const NaN=foo(); enum E{A=NaN,B}",
+          "native": {
+            "code": "const NaN = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = NaN] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "babel": {
+            "code": "const NaN = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = NaN] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "exact": true
+        }
+      },
+      {
+        "name": "enum-binding-dynamic-infinity",
+        "priorCause": "The same nonfinite/name-versus-binding defect for nonliteral Infinity; this changes runtime meaning and purity annotation.",
+        "priorNative": {
+          "code": "const Infinity = foo();\nvar E = function (E) {\n  E[E[\"A\"] = E.Infinity] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+        },
+        "current": {
+          "name": "enum-binding-dynamic-infinity",
+          "source": "const Infinity=foo(); enum E{A=Infinity,B}",
+          "native": {
+            "code": "const Infinity = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = Infinity] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "babel": {
+            "code": "const Infinity = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = Infinity] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "exact": true
+        }
+      },
+      {
+        "name": "enum-binding-after",
+        "priorCause": "The scope facts currently require declaration before use. Pinned Babel folds this later initializer anyway; preserving Babel output requires its actual static binding-folding behavior, regardless of tsc/TDZ expectations.",
+        "priorNative": {
+          "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});\n;\nconst n = 1;"
+        },
+        "current": {
+          "name": "enum-binding-after",
+          "source": "enum E{A=n,B}; const n=1;",
+          "native": {
+            "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"B\"] = 2] = \"B\";\n  return E;\n}(E || {});\n;\nconst n = 1;"
+          },
+          "babel": {
+            "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"B\"] = 2] = \"B\";\n  return E;\n}(E || {});\n;\nconst n = 1;"
+          },
+          "exact": true
+        }
+      },
+      {
+        "name": "enum-binding-computed",
+        "priorCause": "Rust scope facts resolve direct primitive initializers but not recursive constant arithmetic initializers.",
+        "priorNative": {
+          "code": "const n = 1 + 2;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+        },
+        "current": {
+          "name": "enum-binding-computed",
+          "source": "const n=1+2; enum E{A=n,B}",
+          "native": {
+            "code": "const n = 1 + 2;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 3] = \"A\";\n  E[E[\"B\"] = 4] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "babel": {
+            "code": "const n = 1 + 2;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 3] = \"A\";\n  E[E[\"B\"] = 4] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "exact": true
+        }
+      },
+      {
+        "name": "enum-binding-alias",
+        "priorCause": "Recursive stable binding aliases are not folded by the present scope facts.",
+        "priorNative": {
+          "code": "const n = 1;\nconst m = n;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = m] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+        },
+        "current": {
+          "name": "enum-binding-alias",
+          "source": "const n=1;const m=n;enum E{A=m,B}",
+          "native": {
+            "code": "const n = 1;\nconst m = n;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"B\"] = 2] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "babel": {
+            "code": "const n = 1;\nconst m = n;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"B\"] = 2] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "exact": true
+        }
+      },
+      {
+        "name": "enum-binding-negative",
+        "priorCause": "A unary negative initializer is not a direct NumericLiteral in the present facts collector.",
+        "priorNative": {
+          "code": "const n = -1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+        },
+        "current": {
+          "name": "enum-binding-negative",
+          "source": "const n=-1;enum E{A=n,B}",
+          "native": {
+            "code": "const n = -1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = -1] = \"A\";\n  E[E[\"B\"] = 0] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "babel": {
+            "code": "const n = -1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = -1] = \"A\";\n  E[E[\"B\"] = 0] = \"B\";\n  return E;\n}(E || {});"
+          },
+          "exact": true
+        }
+      },
+      {
+        "name": "enum-template-interpolation",
+        "priorCause": "OXC 0.58 enum evaluator concatenates template quasis but ignores interpolation expressions. A correct native static template fold/lowering seam remains required.",
+        "priorNative": {
+          "code": "const n = 1;\nvar E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"x\";\n  return E;\n}(E || {});"
+        },
+        "current": {
+          "name": "enum-template-interpolation",
+          "source": "const n=1;enum E{A=`x${n}`}",
+          "native": {
+            "code": "const n = 1;\nvar E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"x1\";\n  return E;\n}(E || {});"
+          },
+          "babel": {
+            "code": "const n = 1;\nvar E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"x1\";\n  return E;\n}(E || {});"
+          },
+          "exact": true
+        }
+      },
+      {
+        "name": "enum-string-concat-auto",
+        "priorCause": "The native Babel guard rejects auto-increment after a direct string initializer, but not after a string constant expression. Pinned Babel rejects both.",
+        "priorNative": {
+          "code": "var E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"xy\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+        },
+        "current": {
+          "name": "enum-string-concat-auto",
+          "source": "enum E{A=\"x\"+\"y\",B}",
+          "native": {
+            "error": "Failed to transform TypeScript to JavaScript"
+          },
+          "babel": {
+            "error": "Failed to transform TypeScript to JavaScript"
+          },
+          "exact": true
+        }
+      },
+      {
+        "name": "comment-private",
+        "priorCause": "Surviving JS-private field and erased TS-field comment attachment still duplicates indentation and places a trailing comment before the private-field semicolon.",
+        "priorNative": {
+          "code": "class C {\n  /*a*/  #x /*b*/;\n  z = 1;\n}"
+        },
+        "current": {
+          "name": "comment-private",
+          "source": "class C { /*a*/ #x:number; /*b*/ y:number; z=1; }",
+          "native": {
+            "code": "class C {\n  /*a*/#x; /*b*/\n  z = 1;\n}"
+          },
+          "babel": {
+            "code": "class C {\n  /*a*/#x; /*b*/\n  z = 1;\n}"
+          },
+          "exact": true
+        }
+      },
+      {
+        "name": "format-multivar",
+        "priorCause": "The private codegen fork still uses the upstream single-line declaration list. Babel wraps declarators with continuation indentation; loop initializer contexts must retain their own behavior.",
+        "priorNative": {
+          "code": "const x = 1, y = 2, z = 3;"
+        },
+        "current": {
+          "name": "format-multivar",
+          "source": "const x:number=1,y:number=2,z=3;",
+          "native": {
+            "code": "const x = 1,\n  y = 2,\n  z = 3;"
+          },
+          "babel": {
+            "code": "const x = 1,\n  y = 2,\n  z = 3;"
+          },
+          "exact": true
+        }
+      }
+    ]
+  },
+  "additionalContractGap": "Source adapter now requires explicit coherent content mode and fails closed on the pinned host. Unapplied patch 0003 implements metadata/text snapshots while preserving default STRING reads. Full host build and desktop installation acceptance remain unrun.",
+  "unappliedHostPrerequisites": [
+    {
+      "path": "host-prerequisites/0001-dispose-completed-action-no-view.patch",
+      "verification": "Exact pinned renderer callbacks executed in guarded hook/bridge VM; 7 assertions; real GUI not run."
+    },
+    {
+      "path": "host-prerequisites/0002-verified-version-icons-and-installed-aliases.patch",
+      "verification": "Exact original/patched registry icon/replacement helpers compiled in an owned Rust fixture; 13 assertions, plus 2 static native routing checks. Full host build and actual profile/GUI integration not run."
+    },
+    {
+      "path": "host-prerequisites/0003-coherent-clipboard-content.patch",
+      "verification": "5 extracted producer/routing tests with owned OS stubs, plus strict rich-contract real SDK pipe cases. No real clipboard, host build, patch application, or desktop integration."
+    }
+  ]
+}

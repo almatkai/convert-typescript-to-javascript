@@ -1,0 +1,2403 @@
+[
+  {
+    "name": "annotation",
+    "source": "const value: number = 1;",
+    "expected": {
+      "code": "const value = 1;"
+    }
+  },
+  {
+    "name": "function",
+    "source": "function f(x: string): number { return x.length; }",
+    "expected": {
+      "code": "function f(x) {\n  return x.length;\n}"
+    }
+  },
+  {
+    "name": "interfaces",
+    "source": "interface A {x: string}\nconst a: A = {x: \"v\"};",
+    "expected": {
+      "code": "const a = {\n  x: \"v\"\n};"
+    }
+  },
+  {
+    "name": "type-only",
+    "source": "type T = string;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "comment-only",
+    "source": "// keep me",
+    "expected": {
+      "code": "// keep me"
+    }
+  },
+  {
+    "name": "comments",
+    "source": "// comment\nconst n: number=1; // tail",
+    "expected": {
+      "code": "// comment\nconst n = 1; // tail"
+    }
+  },
+  {
+    "name": "unicode",
+    "source": "const café: string = \"你好😀\";",
+    "expected": {
+      "code": "const café = \"你好😀\";"
+    }
+  },
+  {
+    "name": "single-quotes",
+    "source": "const x: string = 'hello';",
+    "expected": {
+      "code": "const x = 'hello';"
+    }
+  },
+  {
+    "name": "template",
+    "source": "const x: string = `a\n\tb${foo as string}`;",
+    "expected": {
+      "code": "const x = `a\n\tb${foo}`;"
+    }
+  },
+  {
+    "name": "imports",
+    "source": "import {Foo,bar} from \"m\"; let x: Foo; bar(x);",
+    "expected": {
+      "code": "import { bar } from \"m\";\nlet x;\nbar(x);"
+    }
+  },
+  {
+    "name": "only-import",
+    "source": "import type {Foo} from \"m\";",
+    "expected": {
+      "code": "export {};"
+    }
+  },
+  {
+    "name": "namespace",
+    "source": "namespace N { export const x: number = 1; }",
+    "expected": {
+      "code": "let N;\n(function (_N) {\n  const x = _N.x = 1;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "enum",
+    "source": "enum E { A, B = 4, C }",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0] = \"A\";\n  E[E[\"B\"] = 4] = \"B\";\n  E[E[\"C\"] = 5] = \"C\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "string-enum",
+    "source": "enum E { A = \"alpha\", B = \"beta\" }",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"alpha\";\n  E[\"B\"] = \"beta\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "const-enum",
+    "source": "const enum E { A, B }; const x = E.B;",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0] = \"A\";\n  E[E[\"B\"] = 1] = \"B\";\n  return E;\n}(E || {});\n;\nconst x = E.B;"
+    }
+  },
+  {
+    "name": "parameter-property",
+    "source": "class C { constructor(public x: number, readonly y = 1) {} }",
+    "expected": {
+      "code": "class C {\n  constructor(x, y = 1) {\n    this.x = x;\n    this.y = y;\n  }\n}"
+    }
+  },
+  {
+    "name": "fields",
+    "source": "class C { x: number; y = 1; private z?: string; }",
+    "expected": {
+      "code": "class C {\n  y = 1;\n}"
+    }
+  },
+  {
+    "name": "declare-field",
+    "source": "class C { declare x: number; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "decorator",
+    "source": "@sealed class C {}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "assertions",
+    "source": "const x = <number>foo; const y = bar as string; foo!;",
+    "expected": {
+      "code": "const x = foo;\nconst y = bar;\nfoo;"
+    }
+  },
+  {
+    "name": "satisfies",
+    "source": "const x = {a: 1} satisfies Record<string,number>;",
+    "expected": {
+      "code": "const x = {\n  a: 1\n};"
+    }
+  },
+  {
+    "name": "generic",
+    "source": "const f = <T,>(x:T):T => x;",
+    "expected": {
+      "code": "const f = x => x;"
+    }
+  },
+  {
+    "name": "jsx",
+    "source": "const x = <div />;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "import-equals",
+    "source": "import x = require(\"x\"); x();",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "namespace-export",
+    "source": "namespace N { export let x = 1; export function f(){ return x; } }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "namespace-type",
+    "source": "namespace N { export type T = string; }",
+    "expected": {
+      "code": "let N;\n(function (_N) {})(N || (N = {}));\nexport {};"
+    }
+  },
+  {
+    "name": "type-export",
+    "source": "export type T = string;",
+    "expected": {
+      "code": "export {};"
+    }
+  },
+  {
+    "name": "abstract-class",
+    "source": "abstract class C { abstract f():void; public x:number = 1; }",
+    "expected": {
+      "code": "class C {\n  x = 1;\n}"
+    }
+  },
+  {
+    "name": "async",
+    "source": "async function f(x:number){ return await g(x); }",
+    "expected": {
+      "code": "async function f(x) {\n  return await g(x);\n}"
+    }
+  },
+  {
+    "name": "tuple",
+    "source": "const x: readonly [string,number] = [\"x\",1];",
+    "expected": {
+      "code": "const x = [\"x\", 1];"
+    }
+  },
+  {
+    "name": "mapped",
+    "source": "type X<T> = { [K in keyof T]?: T[K] }; const x = 1;",
+    "expected": {
+      "code": "const x = 1;"
+    }
+  },
+  {
+    "name": "conditional",
+    "source": "type X<T> = T extends infer U ? U : never; const x = 1;",
+    "expected": {
+      "code": "const x = 1;"
+    }
+  },
+  {
+    "name": "overloads",
+    "source": "function f(x:string):string; function f(x:any){return x;}",
+    "expected": {
+      "code": "function f(x) {\n  return x;\n}"
+    }
+  },
+  {
+    "name": "export-default",
+    "source": "export default function f(x: number) {return x;}",
+    "expected": {
+      "code": "export default function f(x) {\n  return x;\n}"
+    }
+  },
+  {
+    "name": "shebang",
+    "source": "#!/usr/bin/env node\nconst n:number=1;",
+    "expected": {
+      "code": "#!/usr/bin/env node\nconst n = 1;"
+    }
+  },
+  {
+    "name": "directive",
+    "source": "\"use strict\"; const n: number = 1;",
+    "expected": {
+      "code": "\"use strict\";\n\nconst n = 1;"
+    }
+  },
+  {
+    "name": "regex",
+    "source": "const r: RegExp = /a[b]c/gu;",
+    "expected": {
+      "code": "const r = /a[b]c/gu;"
+    }
+  },
+  {
+    "name": "empty",
+    "source": "",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "whitespace",
+    "source": "  \n\t",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "bad",
+    "source": "const x: = 1;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "type-import-reference",
+    "source": "import {Foo} from \"m\"; type T=Foo;",
+    "expected": {
+      "code": "export {};"
+    }
+  },
+  {
+    "name": "object",
+    "source": "const x: any = {a: 1, b: function(){ return 2; }, c(){}};",
+    "expected": {
+      "code": "const x = {\n  a: 1,\n  b: function () {\n    return 2;\n  },\n  c() {}\n};"
+    }
+  },
+  {
+    "name": "optional",
+    "source": "let x: string | undefined; x?.trim();",
+    "expected": {
+      "code": "let x;\nx?.trim();"
+    }
+  },
+  {
+    "name": "spread",
+    "source": "const x: number[] = [1,...other];",
+    "expected": {
+      "code": "const x = [1, ...other];"
+    }
+  },
+  {
+    "name": "computed-enum",
+    "source": "enum E { A = foo(), B = A + 1 }",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = foo()] = \"A\";\n  E[E[\"B\"] = E.A + 1] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "nested-namespace",
+    "source": "namespace A.B { export const x = 1; }",
+    "expected": {
+      "code": "let A;\n(function (_A) {\n  let B;\n  (function (_B) {\n    const x = _B.x = 1;\n  })(B || (B = _A.B || (_A.B = {})));\n})(A || (A = {}));"
+    }
+  },
+  {
+    "name": "module-string",
+    "source": "module \"foo\" { export interface X {} }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "declare",
+    "source": "declare const x: number; const y = 1;",
+    "expected": {
+      "code": "const y = 1;"
+    }
+  },
+  {
+    "name": "export-import",
+    "source": "export import x = require(\"x\");",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "using",
+    "source": "using x = get();",
+    "expected": {
+      "code": "using x = get();"
+    }
+  },
+  {
+    "name": "hashbang-type",
+    "source": "#!/bin/test\ninterface X {}",
+    "expected": {
+      "code": "#!/bin/test"
+    }
+  },
+  {
+    "name": "comment-leading-block",
+    "source": "/* hello */ const x:number=1;",
+    "expected": {
+      "code": "/* hello */const x = 1;"
+    }
+  },
+  {
+    "name": "comment-line-tail",
+    "source": "const x:number=1; // tail",
+    "expected": {
+      "code": "const x = 1; // tail"
+    }
+  },
+  {
+    "name": "comment-block-tail",
+    "source": "const x:number=1; /* tail */",
+    "expected": {
+      "code": "const x = 1; /* tail */"
+    }
+  },
+  {
+    "name": "comment-between",
+    "source": "const x:number=1; // tail\nconst y:string=\"hi\";",
+    "expected": {
+      "code": "const x = 1; // tail\nconst y = \"hi\";"
+    }
+  },
+  {
+    "name": "comment-erased",
+    "source": "/* A */ interface A {}\n/* B */ const n=1;",
+    "expected": {
+      "code": "/* A */\n/* B */const n = 1;"
+    }
+  },
+  {
+    "name": "comment-type-trail",
+    "source": "type A=number; // type\nconst n=1;",
+    "expected": {
+      "code": "// type\nconst n = 1;"
+    }
+  },
+  {
+    "name": "comment-function-inner",
+    "source": "function f(x:number) { // top\nreturn x; // return\n}",
+    "expected": {
+      "code": "function f(x) {\n  // top\n  return x; // return\n}"
+    }
+  },
+  {
+    "name": "comment-empty-body",
+    "source": "function f() { /* empty */ }",
+    "expected": {
+      "code": "function f() {/* empty */}"
+    }
+  },
+  {
+    "name": "comment-param",
+    "source": "function f(/* a */ x:number /* b */) { return x; }",
+    "expected": {
+      "code": "function f(/* a */x) {\n  return x;\n}"
+    }
+  },
+  {
+    "name": "comment-object",
+    "source": "const o = { /* a */ x: 1 /* b */ };",
+    "expected": {
+      "code": "const o = {\n  /* a */x: 1 /* b */\n};"
+    }
+  },
+  {
+    "name": "comment-array",
+    "source": "const x = [1, /* a */ 2];",
+    "expected": {
+      "code": "const x = [1, /* a */2];"
+    }
+  },
+  {
+    "name": "comment-type",
+    "source": "const x: /*type*/ number = 1;",
+    "expected": {
+      "code": "const x = 1;"
+    }
+  },
+  {
+    "name": "comment-standalone-block",
+    "source": "/* comment */",
+    "expected": {
+      "code": "/* comment */"
+    }
+  },
+  {
+    "name": "comment-jsdoc",
+    "source": "/** docs\n * line\n */\nfunction f(x:number){return x;}",
+    "expected": {
+      "code": "/** docs\n * line\n */\nfunction f(x) {\n  return x;\n}"
+    }
+  },
+  {
+    "name": "comment-pure",
+    "source": "const x = /*#__PURE__*/ foo();",
+    "expected": {
+      "code": "const x = /*#__PURE__*/foo();"
+    }
+  },
+  {
+    "name": "comment-license",
+    "source": "/*! copyright */\nconst x:number=1;",
+    "expected": {
+      "code": "/*! copyright */\nconst x = 1;"
+    }
+  },
+  {
+    "name": "comment-erase-only",
+    "source": "// doc\ninterface X {}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "comment-hashbang",
+    "source": "#!/bin/a\n// doc\nconst n=1;",
+    "expected": {
+      "code": "#!/bin/a\n// doc\nconst n = 1;"
+    }
+  },
+  {
+    "name": "class-public-uninit",
+    "source": "class C { public x:number; protected y:string; private z:boolean; }",
+    "expected": {
+      "code": "class C {}"
+    }
+  },
+  {
+    "name": "class-private-uninit",
+    "source": "class C { #x:number; #y=1; }",
+    "expected": {
+      "code": "class C {\n  #x;\n  #y = 1;\n}"
+    }
+  },
+  {
+    "name": "class-definite",
+    "source": "class C { x!:number; }",
+    "expected": {
+      "code": "class C {}"
+    }
+  },
+  {
+    "name": "class-static",
+    "source": "class C { static x:number; static y=1; }",
+    "expected": {
+      "code": "class C {\n  static y = 1;\n}"
+    }
+  },
+  {
+    "name": "class-computed",
+    "source": "class C { [f()]:number; [g()]=1; }",
+    "expected": {
+      "code": "class C {\n  [g()] = 1;\n}"
+    }
+  },
+  {
+    "name": "class-declare-ambient",
+    "source": "declare class C { declare x:number; y:string; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "class-override",
+    "source": "class C extends B { override x:number; override y=1; }",
+    "expected": {
+      "code": "class C extends B {\n  y = 1;\n}"
+    }
+  },
+  {
+    "name": "class-accessor",
+    "source": "class C { accessor x:number=1; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "class-getter",
+    "source": "class C { get x():number{return 1;} set x(v:number){} }",
+    "expected": {
+      "code": "class C {\n  get x() {\n    return 1;\n  }\n  set x(v) {}\n}"
+    }
+  },
+  {
+    "name": "class-method",
+    "source": "class C { public f<T>(x:T):T {return x;} }",
+    "expected": {
+      "code": "class C {\n  f(x) {\n    return x;\n  }\n}"
+    }
+  },
+  {
+    "name": "class-constructor-super",
+    "source": "class C extends B { constructor(public x:number){ super(x); } }",
+    "expected": {
+      "code": "class C extends B {\n  constructor(x) {\n    super(x);\n    this.x = x;\n  }\n}"
+    }
+  },
+  {
+    "name": "class-constructor-default",
+    "source": "class C { constructor(public x = g()) {} }",
+    "expected": {
+      "code": "class C {\n  constructor(x = g()) {\n    this.x = x;\n  }\n}"
+    }
+  },
+  {
+    "name": "class-parameter-destructure",
+    "source": "class C { constructor(public {x}: any) {} }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "class-decorator-property",
+    "source": "class C { @foo x:number=1; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "class-decorator-param",
+    "source": "class C { f(@foo x:number) {} }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "class-abstract-field",
+    "source": "abstract class C { abstract x:number; }",
+    "expected": {
+      "code": "class C {}"
+    }
+  },
+  {
+    "name": "class-index",
+    "source": "class C { [key:string]:number; }",
+    "expected": {
+      "code": "class C {}"
+    }
+  },
+  {
+    "name": "namespace-empty",
+    "source": "namespace N {}",
+    "expected": {
+      "code": "let N;\n(function (_N) {})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-interface",
+    "source": "namespace N { interface X {} }",
+    "expected": {
+      "code": "let N;\n(function (_N) {})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-export-interface",
+    "source": "namespace N { export interface X {} }",
+    "expected": {
+      "code": "let N;\n(function (_N) {})(N || (N = {}));\nexport {};"
+    }
+  },
+  {
+    "name": "namespace-export-type",
+    "source": "namespace N { export type T=string; }",
+    "expected": {
+      "code": "let N;\n(function (_N) {})(N || (N = {}));\nexport {};"
+    }
+  },
+  {
+    "name": "namespace-declare",
+    "source": "declare namespace N { export const x:number; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "namespace-ambient",
+    "source": "declare module \"foo\" { export const x:number; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "namespace-string",
+    "source": "module \"foo\" { export const x:number; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "namespace-nested-types",
+    "source": "namespace A.B { export interface X {} }",
+    "expected": {
+      "code": "let A;\n(function (_A) {\n  let B;\n  (function (_B) {})(B || (B = _A.B || (_A.B = {})));\n})(A || (A = {}));\nexport {};"
+    }
+  },
+  {
+    "name": "namespace-merged",
+    "source": "namespace N { export const x=1; } namespace N { export const y=2; }",
+    "expected": {
+      "code": "let N;\n(function (_N) {\n  const x = _N.x = 1;\n})(N || (N = {}));\n(function (_N2) {\n  const y = _N2.y = 2;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-exported",
+    "source": "export namespace N { export const x=1; }",
+    "expected": {
+      "code": "export let N;\n(function (_N) {\n  const x = _N.x = 1;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-function",
+    "source": "namespace N { export function f(){ return 1; } }",
+    "expected": {
+      "code": "let N;\n(function (_N) {\n  function f() {\n    return 1;\n  }\n  _N.f = f;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-nonconst",
+    "source": "namespace N { export let x=1; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "namespace-unexported-type",
+    "source": "namespace N { type T=string; }",
+    "expected": {
+      "code": "let N;\n(function (_N) {})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-inner-alias",
+    "source": "namespace N { export import A = M.A; }",
+    "expected": {
+      "code": "let N;\n(function (_N) {\n  var A = M.A;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "module-external-unused",
+    "source": "import x = require(\"x\"); const n=1;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "module-type-external",
+    "source": "import type x = require(\"x\"); const n=1;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "module-alias",
+    "source": "import X = N.X; X();",
+    "expected": {
+      "code": "var X = N.X;\nX();"
+    }
+  },
+  {
+    "name": "module-type-alias",
+    "source": "import type X = N.X; const n=1;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "module-export-assignment",
+    "source": "const x=1; export = x;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "module-type-and-value",
+    "source": "import {type T, x} from \"m\"; let a:T; x();",
+    "expected": {
+      "code": "import { x } from \"m\";\nlet a;\nx();"
+    }
+  },
+  {
+    "name": "module-value-unused",
+    "source": "import {x} from \"m\"; const n=1;",
+    "expected": {
+      "code": "const n = 1;\nexport {};"
+    }
+  },
+  {
+    "name": "module-side-effect",
+    "source": "import \"m\";",
+    "expected": {
+      "code": "import \"m\";"
+    }
+  },
+  {
+    "name": "module-default-type",
+    "source": "import X from \"m\"; type T=X;",
+    "expected": {
+      "code": "export {};"
+    }
+  },
+  {
+    "name": "module-react",
+    "source": "import React from \"react\"; const n=1;",
+    "expected": {
+      "code": "const n = 1;\nexport {};"
+    }
+  },
+  {
+    "name": "module-reexport-type",
+    "source": "export type {T} from \"m\";",
+    "expected": {
+      "code": "export {};"
+    }
+  },
+  {
+    "name": "module-reexport-value",
+    "source": "export {x} from \"m\";",
+    "expected": {
+      "code": "export { x } from \"m\";"
+    }
+  },
+  {
+    "name": "module-dynamic",
+    "source": "const x:Promise<any>=import(\"m\");",
+    "expected": {
+      "code": "const x = import(\"m\");"
+    }
+  },
+  {
+    "name": "module-attributes",
+    "source": "import data from \"m\" with {type:\"json\"}; console.log(data);",
+    "expected": {
+      "code": "import data from \"m\" with { type: \"json\" };\nconsole.log(data);"
+    }
+  },
+  {
+    "name": "resource-using",
+    "source": "using x: Foo = get();",
+    "expected": {
+      "code": "using x = get();"
+    }
+  },
+  {
+    "name": "resource-await-using",
+    "source": "await using x:Foo = get();",
+    "expected": {
+      "code": "await using x = get();"
+    }
+  },
+  {
+    "name": "resource-block-using",
+    "source": "function f(){ using x = get(); x(); }",
+    "expected": {
+      "code": "function f() {\n  using x = get();\n  x();\n}"
+    }
+  },
+  {
+    "name": "resource-for-using",
+    "source": "for (using x of xs) { f(x); }",
+    "expected": {
+      "code": "for (using x of xs) {\n  f(x);\n}"
+    }
+  },
+  {
+    "name": "resource-for-await-using",
+    "source": "for await (using x of xs) f(x);",
+    "expected": {
+      "code": "for await (using x of xs) f(x);"
+    }
+  },
+  {
+    "name": "resource-await-using-block",
+    "source": "async function f(){ await using x = get(); }",
+    "expected": {
+      "code": "async function f() {\n  await using x = get();\n}"
+    }
+  },
+  {
+    "name": "enum-negative",
+    "source": "enum E { A=-1, B }",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = -1] = \"A\";\n  E[E[\"B\"] = 0] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binary",
+    "source": "enum E { A=1<<3, B=A+2 }",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 8] = \"A\";\n  E[E[\"B\"] = 10] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-string-concat",
+    "source": "enum E { A=\"a\"+\"b\", B=A }",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"ab\";\n  E[\"B\"] = \"ab\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-refer-other",
+    "source": "enum E {A=1}; enum F {B=E.A}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  return E;\n}(E || {});\n;\nvar F = /*#__PURE__*/function (F) {\n  F[F[\"B\"] = 1] = \"B\";\n  return F;\n}(F || {});"
+    }
+  },
+  {
+    "name": "enum-merge",
+    "source": "enum E {A}; enum E {B=2}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0] = \"A\";\n  return E;\n}(E || {});\n;\nE = /*#__PURE__*/function (E) {\n  E[E[\"B\"] = 2] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-export",
+    "source": "export enum E {A,B}",
+    "expected": {
+      "code": "export let E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0] = \"A\";\n  E[E[\"B\"] = 1] = \"B\";\n  return E;\n}({});"
+    }
+  },
+  {
+    "name": "enum-nested",
+    "source": "function f(){enum E{A};return E.A;}",
+    "expected": {
+      "code": "function f() {\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = 0] = \"A\";\n    return E;\n  }({});\n  ;\n  return E.A;\n}"
+    }
+  },
+  {
+    "name": "enum-heterogeneous",
+    "source": "enum E{A=\"a\",B=1,C}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"a\";\n  E[E[\"B\"] = 1] = \"B\";\n  E[E[\"C\"] = 2] = \"C\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-declared",
+    "source": "declare enum E{A}; const n=1;",
+    "expected": {
+      "code": ";\nconst n = 1;"
+    }
+  },
+  {
+    "name": "enum-const-export",
+    "source": "export const enum E{A,B}",
+    "expected": {
+      "code": "export let E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0] = \"A\";\n  E[E[\"B\"] = 1] = \"B\";\n  return E;\n}({});"
+    }
+  },
+  {
+    "name": "enum-comment",
+    "source": "enum E {/*first*/ A, //second\nB}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0] = \"A\";\n  E[E[\"B\"] = 1] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-unknown",
+    "source": "enum E{A=foo(),B}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = foo()] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-nan",
+    "source": "enum E{A=NaN,B=Infinity,C=-Infinity}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = E.NaN] = \"A\";\n  E[E[\"B\"] = E.Infinity] = \"B\";\n  E[E[\"C\"] = -E.Infinity] = \"C\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "grammar-hex",
+    "source": "const x:number=0xff;",
+    "expected": {
+      "code": "const x = 0xff;"
+    }
+  },
+  {
+    "name": "grammar-separator",
+    "source": "const x:number=1_000;",
+    "expected": {
+      "code": "const x = 1_000;"
+    }
+  },
+  {
+    "name": "grammar-bigint",
+    "source": "const x:bigint=123n;",
+    "expected": {
+      "code": "const x = 123n;"
+    }
+  },
+  {
+    "name": "grammar-hex-bigint",
+    "source": "const x:bigint=0xffn;",
+    "expected": {
+      "code": "const x = 0xffn;"
+    }
+  },
+  {
+    "name": "grammar-string-escape",
+    "source": "const s:string=\"\\u0061\\n\";",
+    "expected": {
+      "code": "const s = \"\\u0061\\n\";"
+    }
+  },
+  {
+    "name": "grammar-string-line",
+    "source": "const s:string='a\\\nb';",
+    "expected": {
+      "code": "const s = 'a\\\nb';"
+    }
+  },
+  {
+    "name": "grammar-directive-single",
+    "source": "'use strict'; const n=1;",
+    "expected": {
+      "code": "'use strict';\n\nconst n = 1;"
+    }
+  },
+  {
+    "name": "grammar-paren",
+    "source": "const x:number = (1 + 2);",
+    "expected": {
+      "code": "const x = 1 + 2;"
+    }
+  },
+  {
+    "name": "grammar-arrow-parens",
+    "source": "const f=(x:number)=>x;",
+    "expected": {
+      "code": "const f = x => x;"
+    }
+  },
+  {
+    "name": "grammar-return-object",
+    "source": "const f=()=>({a:1});",
+    "expected": {
+      "code": "const f = () => ({\n  a: 1\n});"
+    }
+  },
+  {
+    "name": "grammar-nested-object",
+    "source": "const x={a:{b:1}};",
+    "expected": {
+      "code": "const x = {\n  a: {\n    b: 1\n  }\n};"
+    }
+  },
+  {
+    "name": "grammar-destructure",
+    "source": "const {a,b:c}:Foo = x;",
+    "expected": {
+      "code": "const {\n  a,\n  b: c\n} = x;"
+    }
+  },
+  {
+    "name": "grammar-array-spread",
+    "source": "const a:number[]=[1,,...xs];",
+    "expected": {
+      "code": "const a = [1,, ...xs];"
+    }
+  },
+  {
+    "name": "grammar-assertion-function",
+    "source": "const f=(fn as Function)(1);",
+    "expected": {
+      "code": "const f = fn(1);"
+    }
+  },
+  {
+    "name": "grammar-satisfies-arrow",
+    "source": "const f=((x:number)=>x) satisfies Fn;",
+    "expected": {
+      "code": "const f = x => x;"
+    }
+  },
+  {
+    "name": "grammar-non-null-optional",
+    "source": "obj!.x?.[key]!;",
+    "expected": {
+      "code": "obj.x?.[key];"
+    }
+  },
+  {
+    "name": "grammar-unicode-separators",
+    "source": "const s:string=\"  \";",
+    "expected": {
+      "code": "const s = \"  \";"
+    }
+  },
+  {
+    "name": "grammar-regex-slash",
+    "source": "const r:RegExp=/https?:\\/\\//;",
+    "expected": {
+      "code": "const r = /https?:\\/\\//;"
+    }
+  },
+  {
+    "name": "grammar-try",
+    "source": "try{f()}catch(e:unknown){g(e)}finally{h()}",
+    "expected": {
+      "code": "try {\n  f();\n} catch (e) {\n  g(e);\n} finally {\n  h();\n}"
+    }
+  },
+  {
+    "name": "grammar-switch",
+    "source": "switch(x){case 1: foo(); break; default: bar();}",
+    "expected": {
+      "code": "switch (x) {\n  case 1:\n    foo();\n    break;\n  default:\n    bar();\n}"
+    }
+  },
+  {
+    "name": "grammar-loop",
+    "source": "for(let i:number=0;i<2;i++){ f(i); }",
+    "expected": {
+      "code": "for (let i = 0; i < 2; i++) {\n  f(i);\n}"
+    }
+  },
+  {
+    "name": "grammar-if",
+    "source": "if (x) { f(); } else { g(); }",
+    "expected": {
+      "code": "if (x) {\n  f();\n} else {\n  g();\n}"
+    }
+  },
+  {
+    "name": "grammar-throw",
+    "source": "function f(x:any):never{throw new Error(x);}",
+    "expected": {
+      "code": "function f(x) {\n  throw new Error(x);\n}"
+    }
+  },
+  {
+    "name": "grammar-async-arrow",
+    "source": "const f=async(x:number)=>await g(x);",
+    "expected": {
+      "code": "const f = async x => await g(x);"
+    }
+  },
+  {
+    "name": "grammar-yield",
+    "source": "function* f(x:number){ yield x; }",
+    "expected": {
+      "code": "function* f(x) {\n  yield x;\n}"
+    }
+  },
+  {
+    "name": "grammar-export-default-class",
+    "source": "export default class C {x:number=1;}",
+    "expected": {
+      "code": "export default class C {\n  x = 1;\n}"
+    }
+  },
+  {
+    "name": "grammar-interface-export",
+    "source": "export interface X{}",
+    "expected": {
+      "code": "export {};"
+    }
+  },
+  {
+    "name": "grammar-type-satisfies",
+    "source": "const x = a satisfies T as U;",
+    "expected": {
+      "code": "const x = a;"
+    }
+  },
+  {
+    "name": "grammar-assert-tsx",
+    "source": "const x=<T>value;",
+    "expected": {
+      "code": "const x = value;"
+    }
+  },
+  {
+    "name": "grammar-jsx-fragment",
+    "source": "const x=<><div/></>;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "grammar-invalid-return",
+    "source": "return 1;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "grammar-invalid-duplicate",
+    "source": "const x=1; const x=2;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "grammar-invalid-decorator-export",
+    "source": "export @foo class C{}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "module-assert",
+    "source": "import data from \"m\" assert {type:\"json\"}; console.log(data);",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "module-import-phase",
+    "source": "import source wasm from \"m\";",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "module-export-default-type",
+    "source": "type Foo=string; export default Foo;",
+    "expected": {
+      "code": "export {};"
+    }
+  },
+  {
+    "name": "module-import-type-used",
+    "source": "import type {Foo} from \"m\"; console.log(Foo);",
+    "expected": {
+      "code": "console.log(Foo);\nexport {};"
+    }
+  },
+  {
+    "name": "module-import-jsx-pragma",
+    "source": "/** @jsx h */ import {h} from \"m\"; const x=1;",
+    "expected": {
+      "code": "/** @jsx h */const x = 1;\nexport {};"
+    }
+  },
+  {
+    "name": "function-rest",
+    "source": "function f(...args:number[]):number {return args.reduce((a,b)=>a+b,0);}",
+    "expected": {
+      "code": "function f(...args) {\n  return args.reduce((a, b) => a + b, 0);\n}"
+    }
+  },
+  {
+    "name": "function-this",
+    "source": "function f(this:Foo,x:number):void{this.x=x;}",
+    "expected": {
+      "code": "function f(x) {\n  this.x = x;\n}"
+    }
+  },
+  {
+    "name": "function-predicate",
+    "source": "function isFoo(x:unknown):x is Foo{return !!x;}",
+    "expected": {
+      "code": "function isFoo(x) {\n  return !!x;\n}"
+    }
+  },
+  {
+    "name": "function-asserts",
+    "source": "function assert(x:unknown):asserts x{if(!x)throw Error();}",
+    "expected": {
+      "code": "function assert(x) {\n  if (!x) throw Error();\n}"
+    }
+  },
+  {
+    "name": "function-generator",
+    "source": "function* gen<T>(xs:T[]):Generator<T>{for(const x of xs)yield x;}",
+    "expected": {
+      "code": "function* gen(xs) {\n  for (const x of xs) yield x;\n}"
+    }
+  },
+  {
+    "name": "function-overload-export",
+    "source": "export function f(x:number):number; export function f(x:any){return x;}",
+    "expected": {
+      "code": "export function f(x) {\n  return x;\n}"
+    }
+  },
+  {
+    "name": "function-default",
+    "source": "function f(x:number=1,{a}:Foo={a:1}){return x+a;}",
+    "expected": {
+      "code": "function f(x = 1, {\n  a\n} = {\n  a: 1\n}) {\n  return x + a;\n}"
+    }
+  },
+  {
+    "name": "function-arrow-destructure",
+    "source": "const f=({a}:Foo)=>a;",
+    "expected": {
+      "code": "const f = ({\n  a\n}) => a;"
+    }
+  },
+  {
+    "name": "function-nested",
+    "source": "function f(){function g(x:number){return x;} return g;}",
+    "expected": {
+      "code": "function f() {\n  function g(x) {\n    return x;\n  }\n  return g;\n}"
+    }
+  },
+  {
+    "name": "class-extends-generic",
+    "source": "class C<T> extends B<T> implements I<T> {x:T; constructor(x:T){super();this.x=x;}}",
+    "expected": {
+      "code": "class C extends B {\n  constructor(x) {\n    super();\n    this.x = x;\n  }\n}"
+    }
+  },
+  {
+    "name": "class-static-block",
+    "source": "class C { static { let x:number=1; this.x=x; } }",
+    "expected": {
+      "code": "class C {\n  static {\n    let x = 1;\n    this.x = x;\n  }\n}"
+    }
+  },
+  {
+    "name": "class-async-method",
+    "source": "class C { async f<T>(x:T):Promise<T>{return x;} }",
+    "expected": {
+      "code": "class C {\n  async f(x) {\n    return x;\n  }\n}"
+    }
+  },
+  {
+    "name": "class-abstract-init",
+    "source": "abstract class C { abstract x:number=1; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "class-declare-init",
+    "source": "class C { declare x:number=1; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "class-definite-init",
+    "source": "class C { x!:number=1; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "class-parameter-default-destructure",
+    "source": "class C { constructor(public {x}:any={x:1}){} }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "enum-shadow-nan",
+    "source": "const NaN=4; enum E {A=NaN,B}",
+    "expected": {
+      "code": "const NaN = 4;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 4] = \"A\";\n  E[E[\"B\"] = 5] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-shadow-infinity",
+    "source": "const Infinity=4; enum E {A=Infinity,B}",
+    "expected": {
+      "code": "const Infinity = 4;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 4] = \"A\";\n  E[E[\"B\"] = 5] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-prior-name",
+    "source": "enum E {NaN=1,A=NaN,Infinity=5,B=Infinity}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"NaN\"] = 1] = \"NaN\";\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"Infinity\"] = 5] = \"Infinity\";\n  E[E[\"B\"] = 5] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-expression",
+    "source": "enum E {A=Math.random(),B,C=A+2}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = Math.random()] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  E[E[\"C\"] = E.A + 2] = \"C\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-string-auto",
+    "source": "enum E {A=\"x\",B}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "enum-binary-nonfinite",
+    "source": "enum E {A=Infinity+1,B=NaN+2}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = E.Infinity + 1] = \"A\";\n  E[E[\"B\"] = E.NaN + 2] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-nested-scope",
+    "source": "let n=1; function f(){enum E{A=n,B};return E;}",
+    "expected": {
+      "code": "let n = 1;\nfunction f() {\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = 1] = \"A\";\n    E[E[\"B\"] = 2] = \"B\";\n    return E;\n  }({});\n  ;\n  return E;\n}"
+    }
+  },
+  {
+    "name": "namespace-local",
+    "source": "namespace N { const x=1; export const y=x+1; }",
+    "expected": {
+      "code": "let N;\n(function (_N) {\n  const x = 1;\n  const y = _N.y = x + 1;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-fn",
+    "source": "namespace N { export function f(x:number){return x;} }",
+    "expected": {
+      "code": "let N;\n(function (_N) {\n  function f(x) {\n    return x;\n  }\n  _N.f = f;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-type-comment",
+    "source": "namespace N { /*doc*/ export interface X {} }",
+    "expected": {
+      "code": "let N;\n(function (_N) {})(N || (N = {}));\nexport {};"
+    }
+  },
+  {
+    "name": "namespace-redeclared",
+    "source": "class N {} namespace N {export const x=1;}",
+    "expected": {
+      "code": "class N {}\n(function (_N) {\n  const x = _N.x = 1;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-alias-use",
+    "source": "namespace N {export import A=M.A; A();}",
+    "expected": {
+      "code": "let N;\n(function (_N) {\n  var A = M.A;\n  A();\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-enum",
+    "source": "namespace N {export enum E{A,B}}",
+    "expected": {
+      "code": "let N;\n(function (_N) {\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = 0] = \"A\";\n    E[E[\"B\"] = 1] = \"B\";\n    return E;\n  }({});\n  _N.E = E;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "namespace-alias-collision",
+    "source": "const _N=1; namespace N {export import A=M.A;}",
+    "expected": {
+      "code": "const _N = 1;\nlet N;\n(function (_N2) {\n  var A = M.A;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "whitespace-blanklines",
+    "source": "const a:number=1;\n\n\nfunction f(){return a;}\n\nconst b=2;",
+    "expected": {
+      "code": "const a = 1;\nfunction f() {\n  return a;\n}\nconst b = 2;"
+    }
+  },
+  {
+    "name": "whitespace-crlf",
+    "source": "// docs\r\nconst x:number=1;\r\nconst y=2;",
+    "expected": {
+      "code": "// docs\nconst x = 1;\nconst y = 2;"
+    }
+  },
+  {
+    "name": "unicode-identifier",
+    "source": "const π:number=3.14; const 变量:string=\"x\";",
+    "expected": {
+      "code": "const π = 3.14;\nconst 变量 = \"x\";"
+    }
+  },
+  {
+    "name": "unicode-escaped-identifier",
+    "source": "const \\u0061:number=1;",
+    "expected": {
+      "code": "const a = 1;"
+    }
+  },
+  {
+    "name": "unicode-comment",
+    "source": "// 你好 😀\nconst x:number=1;",
+    "expected": {
+      "code": "// 你好 😀\nconst x = 1;"
+    }
+  },
+  {
+    "name": "unicode-bom",
+    "source": "﻿const x:number=1;",
+    "expected": {
+      "code": "const x = 1;"
+    }
+  },
+  {
+    "name": "expression-ternary",
+    "source": "const x:number=foo?bar:baz;",
+    "expected": {
+      "code": "const x = foo ? bar : baz;"
+    }
+  },
+  {
+    "name": "expression-sequence",
+    "source": "const x:number=(a(),b());",
+    "expected": {
+      "code": "const x = (a(), b());"
+    }
+  },
+  {
+    "name": "expression-nullish",
+    "source": "const x=foo??bar||baz;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "expression-new",
+    "source": "const x:Foo=new Foo<string>(1);",
+    "expected": {
+      "code": "const x = new Foo(1);"
+    }
+  },
+  {
+    "name": "expression-tag",
+    "source": "const x=tag<T>`hello ${value as string}`;",
+    "expected": {
+      "code": "const x = tag`hello ${value}`;"
+    }
+  },
+  {
+    "name": "expression-generic-call",
+    "source": "const x=fn<T,U>(a,b);",
+    "expected": {
+      "code": "const x = fn(a, b);"
+    }
+  },
+  {
+    "name": "expression-instantiation",
+    "source": "const f=fn<string>;",
+    "expected": {
+      "code": "const f = fn;"
+    }
+  },
+  {
+    "name": "expression-function",
+    "source": "const f=function named(x:number){return x;};",
+    "expected": {
+      "code": "const f = function named(x) {\n  return x;\n};"
+    }
+  },
+  {
+    "name": "expression-optional-call",
+    "source": "obj?.method?.<T>(x!);",
+    "expected": {
+      "code": "obj?.method?.(x);"
+    }
+  },
+  {
+    "name": "statement-label",
+    "source": "outer: for(let i=0;i<3;i++){if(i===1)continue outer;}",
+    "expected": {
+      "code": "outer: for (let i = 0; i < 3; i++) {\n  if (i === 1) continue outer;\n}"
+    }
+  },
+  {
+    "name": "statement-do",
+    "source": "do { f(); } while(x);",
+    "expected": {
+      "code": "do {\n  f();\n} while (x);"
+    }
+  },
+  {
+    "name": "statement-while",
+    "source": "while(x){f();}",
+    "expected": {
+      "code": "while (x) {\n  f();\n}"
+    }
+  },
+  {
+    "name": "statement-catch",
+    "source": "try{f()}catch{g()}",
+    "expected": {
+      "code": "try {\n  f();\n} catch {\n  g();\n}"
+    }
+  },
+  {
+    "name": "statement-empty",
+    "source": ";;;",
+    "expected": {
+      "code": ";\n;\n;"
+    }
+  },
+  {
+    "name": "type-template",
+    "source": "type X<T extends string> = `prefix${T}`; const x=1;",
+    "expected": {
+      "code": "const x = 1;"
+    }
+  },
+  {
+    "name": "type-unique",
+    "source": "declare const s:unique symbol; const x=1;",
+    "expected": {
+      "code": "const x = 1;"
+    }
+  },
+  {
+    "name": "type-recursive",
+    "source": "type Json=string|number|{[key:string]:Json}|Json[]; const x=1;",
+    "expected": {
+      "code": "const x = 1;"
+    }
+  },
+  {
+    "name": "comment-after-assertion",
+    "source": "const x=foo as T /* erased? */;",
+    "expected": {
+      "code": "const x = foo /* erased? */;"
+    }
+  },
+  {
+    "name": "comment-before-type",
+    "source": "type T = /*inner*/ number; const x=1;",
+    "expected": {
+      "code": "const x = 1;"
+    }
+  },
+  {
+    "name": "comment-trailing-function",
+    "source": "function f(){} // tail\nconst x=1;",
+    "expected": {
+      "code": "function f() {} // tail\nconst x = 1;"
+    }
+  },
+  {
+    "name": "comment-multi-block",
+    "source": "/*a*/ /*b*/ const x:number=1;",
+    "expected": {
+      "code": "/*a*/ /*b*/const x = 1;"
+    }
+  },
+  {
+    "name": "comment-return",
+    "source": "function f(){return /*a*/ x as T;}",
+    "expected": {
+      "code": "function f() {\n  return /*a*/x;\n}"
+    }
+  },
+  {
+    "name": "comment-object-method",
+    "source": "const o={/*doc*/ f(x:number){return x;}};",
+    "expected": {
+      "code": "const o = {\n  /*doc*/f(x) {\n    return x;\n  }\n};"
+    }
+  },
+  {
+    "name": "comment-arrow",
+    "source": "const f=/*doc*/ (x:number)=>x;",
+    "expected": {
+      "code": "const f = /*doc*/x => x;"
+    }
+  },
+  {
+    "name": "comment-namespace",
+    "source": "/*doc*/ namespace N {export const x=1;}",
+    "expected": {
+      "code": "/*doc*/\nlet N;\n(function (_N) {\n  const x = _N.x = 1;\n})(N || (N = {}));"
+    }
+  },
+  {
+    "name": "comment-enum-outside",
+    "source": "/*doc*/ enum E{A} //tail",
+    "expected": {
+      "code": "/*doc*/\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0] = \"A\";\n  return E;\n}(E || {}); //tail"
+    }
+  },
+  {
+    "name": "comment-import",
+    "source": "/*doc*/ import type {T} from \"m\"; const x=1;",
+    "expected": {
+      "code": "/*doc*/const x = 1;\nexport {};"
+    }
+  },
+  {
+    "name": "comment-export",
+    "source": "export /*doc*/ const x:number=1;",
+    "expected": {
+      "code": "export /*doc*/const x = 1;"
+    }
+  },
+  {
+    "name": "comment-directive",
+    "source": "/*doc*/ \"use strict\"; const x=1;",
+    "expected": {
+      "code": "/*doc*/\"use strict\";\n\nconst x = 1;"
+    }
+  },
+  {
+    "name": "syntax-invalid-await",
+    "source": "function f(){await g();}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "syntax-invalid-accessor",
+    "source": "class C{ accessor x; }",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "syntax-invalid-tsx",
+    "source": "const c=<Comp<number> value={1}/>;",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "syntax-valid-angle",
+    "source": "const x=<Array<number>>value;",
+    "expected": {
+      "code": "const x = value;"
+    }
+  },
+  {
+    "name": "syntax-satisfies-nested",
+    "source": "const x=(foo as T) satisfies U;",
+    "expected": {
+      "code": "const x = foo;"
+    }
+  },
+  {
+    "name": "enum-binding-dynamic-nan",
+    "source": "const NaN=foo(); enum E{A=NaN,B}",
+    "expected": {
+      "code": "const NaN = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = NaN] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binding-dynamic-infinity",
+    "source": "const Infinity=foo(); enum E{A=Infinity,B}",
+    "expected": {
+      "code": "const Infinity = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = Infinity] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binding-reassigned",
+    "source": "let n=1; n=2; enum E{A=n,B}",
+    "expected": {
+      "code": "let n = 1;\nn = 2;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binding-after",
+    "source": "enum E{A=n,B}; const n=1;",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"B\"] = 2] = \"B\";\n  return E;\n}(E || {});\n;\nconst n = 1;"
+    }
+  },
+  {
+    "name": "enum-binding-string",
+    "source": "const value=\"x\"; enum E{A=value,B}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "enum-binding-computed",
+    "source": "const n=1+2; enum E{A=n,B}",
+    "expected": {
+      "code": "const n = 1 + 2;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 3] = \"A\";\n  E[E[\"B\"] = 4] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binding-alias",
+    "source": "const n=1;const m=n;enum E{A=m,B}",
+    "expected": {
+      "code": "const n = 1;\nconst m = n;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"B\"] = 2] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binding-negative",
+    "source": "const n=-1;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = -1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = -1] = \"A\";\n  E[E[\"B\"] = 0] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binding-shadow",
+    "source": "const n=1;function f(){const n=3;enum E{A=n,B};return E;}",
+    "expected": {
+      "code": "const n = 1;\nfunction f() {\n  const n = 3;\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = 3] = \"A\";\n    E[E[\"B\"] = 4] = \"B\";\n    return E;\n  }({});\n  ;\n  return E;\n}"
+    }
+  },
+  {
+    "name": "enum-binding-call",
+    "source": "const n=1; enum E{A=foo(n),B}",
+    "expected": {
+      "code": "const n = 1;\nvar E = function (E) {\n  E[E[\"A\"] = foo(n)] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binding-function",
+    "source": "const n=1; enum E{A=()=>n}",
+    "expected": {
+      "code": "const n = 1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = () => n] = \"A\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-interpolation",
+    "source": "const n=1;enum E{A=`x${n}`}",
+    "expected": {
+      "code": "const n = 1;\nvar E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"x1\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-string-concat-auto",
+    "source": "enum E{A=\"x\"+\"y\",B}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "module-default-interface",
+    "source": "interface Foo{};export default Foo;",
+    "expected": {
+      "code": ";\nexport {};"
+    }
+  },
+  {
+    "name": "module-default-value",
+    "source": "class Foo{};export default Foo;",
+    "expected": {
+      "code": "class Foo {}\n;\nexport default Foo;"
+    }
+  },
+  {
+    "name": "module-default-import-type",
+    "source": "import type {Foo} from \"m\";export default Foo;",
+    "expected": {
+      "code": "export {};"
+    }
+  },
+  {
+    "name": "comment-nested-type",
+    "source": "const x: { a: /*inside*/ number } = {a:1};",
+    "expected": {
+      "code": "const x = {\n  a: 1\n};"
+    }
+  },
+  {
+    "name": "comment-private",
+    "source": "class C { /*a*/ #x:number; /*b*/ y:number; z=1; }",
+    "expected": {
+      "code": "class C {\n  /*a*/#x; /*b*/\n  z = 1;\n}"
+    }
+  },
+  {
+    "name": "format-multivar",
+    "source": "const x:number=1,y:number=2,z=3;",
+    "expected": {
+      "code": "const x = 1,\n  y = 2,\n  z = 3;"
+    }
+  },
+  {
+    "name": "format-sequence",
+    "source": "function f(){let a=1;let b=2;return(a,b);}",
+    "expected": {
+      "code": "function f() {\n  let a = 1;\n  let b = 2;\n  return a, b;\n}"
+    }
+  },
+  {
+    "name": "format-property-key",
+    "source": "const x={\"hello-world\":1, 2:3};",
+    "expected": {
+      "code": "const x = {\n  \"hello-world\": 1,\n  2: 3\n};"
+    }
+  },
+  {
+    "name": "format-regular-methods",
+    "source": "class C{f(){} g(){return 1;}}",
+    "expected": {
+      "code": "class C {\n  f() {}\n  g() {\n    return 1;\n  }\n}"
+    }
+  },
+  {
+    "name": "format-interpreter",
+    "source": "#!/usr/bin/env node\n\"use strict\";\nconst x=1;",
+    "expected": {
+      "code": "#!/usr/bin/env node\n\"use strict\";\n\nconst x = 1;"
+    }
+  },
+  {
+    "name": "enum-shadow-nested",
+    "source": "const n=1;function f(){const n=3;enum E{A=n,B}}enum F{A=n,B}",
+    "expected": {
+      "code": "const n = 1;\nfunction f() {\n  const n = 3;\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = 3] = \"A\";\n    E[E[\"B\"] = 4] = \"B\";\n    return E;\n  }({});\n}\nvar F = /*#__PURE__*/function (F) {\n  F[F[\"A\"] = 1] = \"A\";\n  F[F[\"B\"] = 2] = \"B\";\n  return F;\n}(F || {});"
+    }
+  },
+  {
+    "name": "enum-shadow-parameter",
+    "source": "const n=1;function f(n:number){enum E{A=n,B}}",
+    "expected": {
+      "code": "const n = 1;\nfunction f(n) {\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = n] = \"A\";\n    E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n    return E;\n  }({});\n}"
+    }
+  },
+  {
+    "name": "enum-binding-reassign-before",
+    "source": "let n=1;n=2;enum E{A=n,B}",
+    "expected": {
+      "code": "let n = 1;\nn = 2;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binding-reassign-after",
+    "source": "let n=1;enum E{A=n,B}n=2;",
+    "expected": {
+      "code": "let n = 1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});\nn = 2;"
+    }
+  },
+  {
+    "name": "enum-binding-update",
+    "source": "let n=1;n++;enum E{A=n,B}",
+    "expected": {
+      "code": "let n = 1;\nn++;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-forward-alias",
+    "source": "enum E{A=m,B}const m=n;const n=4;",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 4] = \"A\";\n  E[E[\"B\"] = 5] = \"B\";\n  return E;\n}(E || {});\nconst m = n;\nconst n = 4;"
+    }
+  },
+  {
+    "name": "enum-circular-alias",
+    "source": "const n=m;const m=n;enum E{A=m,B}",
+    "expected": {
+      "code": "const n = m;\nconst m = n;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = m] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-self-alias",
+    "source": "const n=n;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = n;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-bound-nan-param",
+    "source": "function f(NaN:number){enum E{A=NaN,B}}",
+    "expected": {
+      "code": "function f(NaN) {\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = NaN] = \"A\";\n    E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n    return E;\n  }({});\n}"
+    }
+  },
+  {
+    "name": "enum-bound-infinity-mutated",
+    "source": "let Infinity=1;Infinity=foo();enum E{A=Infinity,B}",
+    "expected": {
+      "code": "let Infinity = 1;\nInfinity = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = Infinity] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-members-nonfinite-names",
+    "source": "enum E{NaN=3,Infinity=4,A=NaN,B=Infinity,C}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"NaN\"] = 3] = \"NaN\";\n  E[E[\"Infinity\"] = 4] = \"Infinity\";\n  E[E[\"A\"] = 3] = \"A\";\n  E[E[\"B\"] = 4] = \"B\";\n  E[E[\"C\"] = 5] = \"C\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-unbound-nan-nested",
+    "source": "enum E{A=NaN+2,B}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = E.NaN + 2] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-unbound-infinity-negative",
+    "source": "enum E{A=-Infinity,B}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = -E.Infinity] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-bound-nan-binary",
+    "source": "const NaN=foo();enum E{A=NaN+1,B}",
+    "expected": {
+      "code": "const NaN = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = NaN + 1] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-bound-infinity-shadow",
+    "source": "const Infinity=2;function f(){const Infinity=foo();enum E{A=Infinity,B}}",
+    "expected": {
+      "code": "const Infinity = 2;\nfunction f() {\n  const Infinity = foo();\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = Infinity] = \"A\";\n    E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n    return E;\n  }({});\n}"
+    }
+  },
+  {
+    "name": "enum-template-static-cooked",
+    "source": "enum E{A=`x\\ny`}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"x\\ny\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-static-refs",
+    "source": "const a=1;const b=\"z\";enum E{A=`x${a}-${b}`}",
+    "expected": {
+      "code": "const a = 1;\nconst b = \"z\";\nvar E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"x1-z\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-dynamic",
+    "source": "enum E{A=`x${foo()}`,B}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = `x${foo()}`] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-constant-expression",
+    "source": "enum E{A=`x${1+2}`}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = `x${1 + 2}`] = \"A\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-literal-expression",
+    "source": "enum E{A=`x${1}`}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = `x${1}`] = \"A\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-shadowed",
+    "source": "const n=1;function f(n:number){enum E{A=`x${n}`}}",
+    "expected": {
+      "code": "const n = 1;\nfunction f(n) {\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = `x${n}`] = \"A\";\n    return E;\n  }({});\n}"
+    }
+  },
+  {
+    "name": "enum-template-string-increment",
+    "source": "const n=1;enum E{A=`x${n}`,B}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "enum-string-alias-increment",
+    "source": "const s=\"x\";const n=s+\"y\";enum E{A=n,B}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "enum-grouping",
+    "source": "const n=(1+2)*3;enum E{A=(n-2)/2,B}",
+    "expected": {
+      "code": "const n = (1 + 2) * 3;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 3.5] = \"A\";\n  E[E[\"B\"] = 4.5] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-f64",
+    "source": "const n=0.1+0.2;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = 0.1 + 0.2;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0.30000000000000004] = \"A\";\n  E[E[\"B\"] = 1.3] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-negative-zero",
+    "source": "const n=-0;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = -0;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0] = \"A\";\n  E[E[\"B\"] = 1] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-computed-infinity",
+    "source": "const n=1/0;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = 1 / 0;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = Infinity] = \"A\";\n  E[E[\"B\"] = Infinity] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-computed-nan",
+    "source": "const n=0/0;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = 0 / 0;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = NaN] = \"A\";\n  E[E[\"B\"] = NaN] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-unary-string-plus",
+    "source": "enum E{A=+\"3\"}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"3\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-unary-string-negative",
+    "source": "enum E{A=-\"3\",B}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = -3] = \"A\";\n  E[E[\"B\"] = -2] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-coerce-string-multiply",
+    "source": "const n=\"3\"*2;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = \"3\" * 2;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 6] = \"A\";\n  E[E[\"B\"] = 7] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-coerce-empty-string",
+    "source": "const n=\"\"-1;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = \"\" - 1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = -1] = \"A\";\n  E[E[\"B\"] = 0] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-coerce-hex-string",
+    "source": "const n=\"0x10\"-1;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = \"0x10\" - 1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 15] = \"A\";\n  E[E[\"B\"] = 16] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-coerce-invalid-string",
+    "source": "const n=\"a\"-1;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = \"a\" - 1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = NaN] = \"A\";\n  E[E[\"B\"] = NaN] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-bitwise-large",
+    "source": "const n=4294967297|0;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = 4294967297 | 0;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"B\"] = 2] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-shift-sign",
+    "source": "const n=-1>>>1;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = -1 >>> 1;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 2147483647] = \"A\";\n  E[E[\"B\"] = 2147483648] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-power-negative-fraction",
+    "source": "const n=(-1)**0.5;enum E{A=n,B}",
+    "expected": {
+      "code": "const n = (-1) ** 0.5;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = NaN] = \"A\";\n  E[E[\"B\"] = NaN] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-negative-zero",
+    "source": "const n=-0;enum E{A=`x${n}`}",
+    "expected": {
+      "code": "const n = -0;\nvar E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"x0\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "comment-private-newlines",
+    "source": "class C {\n/*a*/ #x:number;\n/*b*/ y:number;\nz=1;\n}",
+    "expected": {
+      "code": "class C {\n  /*a*/#x;\n  /*b*/\n  z = 1;\n}"
+    }
+  },
+  {
+    "name": "comment-private-value",
+    "source": "class C {/*a*/#x:number=1;/*b*/y:number;z=1;}",
+    "expected": {
+      "code": "class C {\n  /*a*/#x = 1; /*b*/\n  z = 1;\n}"
+    }
+  },
+  {
+    "name": "comment-private-two",
+    "source": "class C {/*a*/#x:number;/*b*/#y:number;/*c*/z=1;}",
+    "expected": {
+      "code": "class C {\n  /*a*/#x; /*b*/\n  #y; /*c*/\n  z = 1;\n}"
+    }
+  },
+  {
+    "name": "format-multivar-loop",
+    "source": "for(let x:number=1,y:number=2;x<y;x++){const a=1,b=2;}",
+    "expected": {
+      "code": "for (let x = 1, y = 2; x < y; x++) {\n  const a = 1,\n    b = 2;\n}"
+    }
+  },
+  {
+    "name": "format-multivar-nested",
+    "source": "function f(){let x:number=1,y:number=2,z=3;}",
+    "expected": {
+      "code": "function f() {\n  let x = 1,\n    y = 2,\n    z = 3;\n}"
+    }
+  },
+  {
+    "name": "format-multivar-export",
+    "source": "export const x:number=1,y:number=2,z=3;",
+    "expected": {
+      "code": "export const x = 1,\n  y = 2,\n  z = 3;"
+    }
+  },
+  {
+    "name": "format-multivar-uninitialized",
+    "source": "let x:number,y:string,z=3;",
+    "expected": {
+      "code": "let x,\n  y,\n  z = 3;"
+    }
+  },
+  {
+    "name": "format-multivar-comments",
+    "source": "const x:number=1,/*a*/y:number=2,z=3;",
+    "expected": {
+      "code": "const x = 1,\n  /*a*/y = 2,\n  z = 3;"
+    }
+  },
+  {
+    "name": "enum-nested-same-name",
+    "source": "enum E{A=1}function f(){enum E{A=3,B}}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  return E;\n}(E || {});\nfunction f() {\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = 3] = \"A\";\n    E[E[\"B\"] = 4] = \"B\";\n    return E;\n  }({});\n}"
+    }
+  },
+  {
+    "name": "enum-cross-shadow",
+    "source": "enum E{A=1}function f(){const E={A:3};enum F{B=E.A}}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  return E;\n}(E || {});\nfunction f() {\n  const E = {\n    A: 3\n  };\n  let F = function (F) {\n    F[F[\"B\"] = E.A] = \"B\";\n    return F;\n  }({});\n}"
+    }
+  },
+  {
+    "name": "enum-member-shadow-binding",
+    "source": "const A=7;enum E{A=1,B=A,C}",
+    "expected": {
+      "code": "const A = 7;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"B\"] = 1] = \"B\";\n  E[E[\"C\"] = 2] = \"C\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-multivar-bindings",
+    "source": "const a=2,b=a+3;enum E{A=b,B}",
+    "expected": {
+      "code": "const a = 2,\n  b = a + 3;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 5] = \"A\";\n  E[E[\"B\"] = 6] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-binding-destructured",
+    "source": "const {n}={n:1};enum E{A=n,B}",
+    "expected": {
+      "code": "const {\n  n\n} = {\n  n: 1\n};\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-bound-dynamic-infinity",
+    "source": "const Infinity=foo();enum E{A=`x${Infinity}`}",
+    "expected": {
+      "code": "const Infinity = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = `x${Infinity}`] = \"A\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-coerce-whitespace",
+    "source": "const n=\" \\u00a0 \"+\"2\";enum E{A=n-1,B}",
+    "expected": {
+      "code": "const n = \" \\u00a0 \" + \"2\";\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  E[E[\"B\"] = 2] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-coerce-nonjs-whitespace",
+    "source": "const n=\"\\u0085\";enum E{A=n-1,B}",
+    "expected": {
+      "code": "const n = \"\\u0085\";\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = NaN] = \"A\";\n  E[E[\"B\"] = NaN] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-large-decimal",
+    "source": "enum E{A=1000000,B=1e-7,C=1e21}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1000000] = \"A\";\n  E[E[\"B\"] = 1e-7] = \"B\";\n  E[E[\"C\"] = 1e+21] = \"C\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-call-with-template",
+    "source": "enum E{A=foo(`x${bar()}`),B}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = foo(`x${bar()}`)] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "format-multivar-loop-in",
+    "source": "for(var x in y){let a=1,b=2;}",
+    "expected": {
+      "code": "for (var x in y) {\n  let a = 1,\n    b = 2;\n}"
+    }
+  },
+  {
+    "name": "comment-private-line",
+    "source": "class C { //a\n#x:number; //b\ny:number;z=1;}",
+    "expected": {
+      "code": "class C {\n  //a\n  #x; //b\n  z = 1;\n}"
+    }
+  },
+  {
+    "name": "enum-template-unbound-nan",
+    "source": "enum E{A=`x${NaN}`}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = `x${E.NaN}`] = \"A\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-unbound-infinity",
+    "source": "enum E{A=`x${Infinity}`}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = `x${E.Infinity}`] = \"A\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-member-ref",
+    "source": "enum E{A=1}enum F{A=`x${E.A}`}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 1] = \"A\";\n  return E;\n}(E || {});\nvar F = /*#__PURE__*/function (F) {\n  F[\"A\"] = \"x1\";\n  return F;\n}(F || {});"
+    }
+  },
+  {
+    "name": "enum-template-dynamic-member-ref",
+    "source": "const o={n:1};enum E{A=`x${o.n}`}",
+    "expected": {
+      "code": "const o = {\n  n: 1\n};\nvar E = function (E) {\n  E[E[\"A\"] = `x${o.n}`] = \"A\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-nan-expression-group",
+    "source": "enum E{A=(NaN+1)*2,B}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = (E.NaN + 1) * 2] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-nan-bound-const-string",
+    "source": "const NaN=\"x\";enum E{A=NaN}",
+    "expected": {
+      "code": "const NaN = \"x\";\nvar E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"x\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-infinity-bound-alias",
+    "source": "const n=foo();const Infinity=n;enum E{A=Infinity,B}",
+    "expected": {
+      "code": "const n = foo();\nconst Infinity = n;\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = Infinity] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-negative-zero-direct",
+    "source": "enum E{A=-0,B}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = 0] = \"A\";\n  E[E[\"B\"] = 1] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-coercion-template-static",
+    "source": "const n=\"2\"*3;enum E{A=`x${n}`}",
+    "expected": {
+      "code": "const n = \"2\" * 3;\nvar E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"x6\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-string-plus-increment",
+    "source": "enum E{A=+\"x\",B}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "enum-string-negate-increment",
+    "source": "enum E{A=-\"x\",B}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = NaN] = \"A\";\n  E[E[\"B\"] = NaN] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-shift-negative-count",
+    "source": "enum E{A=1<<-1,B}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = -2147483648] = \"A\";\n  E[E[\"B\"] = -2147483647] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-mutation-inner-scope",
+    "source": "let n=1;function f(){n=2}enum E{A=n,B}",
+    "expected": {
+      "code": "let n = 1;\nfunction f() {\n  n = 2;\n}\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = n] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-shadow-inner-mutation",
+    "source": "const n=1;function f(){let n=2;n=3;enum E{A=n,B}}enum F{A=n,B}",
+    "expected": {
+      "code": "const n = 1;\nfunction f() {\n  let n = 2;\n  n = 3;\n  let E = /*#__PURE__*/function (E) {\n    E[E[\"A\"] = n] = \"A\";\n    E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n    return E;\n  }({});\n}\nvar F = /*#__PURE__*/function (F) {\n  F[F[\"A\"] = 1] = \"A\";\n  F[F[\"B\"] = 2] = \"B\";\n  return F;\n}(F || {});"
+    }
+  },
+  {
+    "name": "enum-template-nested-call-expression",
+    "source": "const n=foo();enum E{A=`${n}`,B}",
+    "expected": {
+      "code": "const n = foo();\nvar E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = `${n}`] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-cooked-backslash",
+    "source": "const n=1;enum E{A=`\\t${n}\\n`}",
+    "expected": {
+      "code": "const n = 1;\nvar E = /*#__PURE__*/function (E) {\n  E[\"A\"] = \"\\t1\\n\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-member-string-auto",
+    "source": "enum E{A=1}enum F{A=`x${E.A}`,B}",
+    "expected": {
+      "error": "Failed to transform TypeScript to JavaScript"
+    }
+  },
+  {
+    "name": "enum-nonfinite-evaluation-order",
+    "source": "enum E{A=foo()+NaN,B}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = foo() + NaN] = \"A\";\n  E[E[\"B\"] = 1 + E[\"A\"]] = \"B\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-binary-nonfinite",
+    "source": "enum E{A=`x${NaN+1}`}",
+    "expected": {
+      "code": "var E = function (E) {\n  E[E[\"A\"] = `x${NaN + 1}`] = \"A\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-array-purity",
+    "source": "enum E{A=`x${[1,2]}`}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = `x${[1, 2]}`] = \"A\";\n  return E;\n}(E || {});"
+    }
+  },
+  {
+    "name": "enum-template-object-purity",
+    "source": "enum E{A=`x${{n:1}}}`}",
+    "expected": {
+      "code": "var E = /*#__PURE__*/function (E) {\n  E[E[\"A\"] = `x${{\n    n: 1\n  }}}`] = \"A\";\n  return E;\n}(E || {});"
+    }
+  }
+]

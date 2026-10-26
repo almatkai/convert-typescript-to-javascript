@@ -1,0 +1,1374 @@
+[
+  {
+    "name": "annotation",
+    "source": "const value: number = 1;"
+  },
+  {
+    "name": "function",
+    "source": "function f(x: string): number { return x.length; }"
+  },
+  {
+    "name": "interfaces",
+    "source": "interface A {x: string}\nconst a: A = {x: \"v\"};"
+  },
+  {
+    "name": "type-only",
+    "source": "type T = string;"
+  },
+  {
+    "name": "comment-only",
+    "source": "// keep me"
+  },
+  {
+    "name": "comments",
+    "source": "// comment\nconst n: number=1; // tail"
+  },
+  {
+    "name": "unicode",
+    "source": "const café: string = \"你好😀\";"
+  },
+  {
+    "name": "single-quotes",
+    "source": "const x: string = 'hello';"
+  },
+  {
+    "name": "template",
+    "source": "const x: string = `a\n\tb${foo as string}`;"
+  },
+  {
+    "name": "imports",
+    "source": "import {Foo,bar} from \"m\"; let x: Foo; bar(x);"
+  },
+  {
+    "name": "only-import",
+    "source": "import type {Foo} from \"m\";"
+  },
+  {
+    "name": "namespace",
+    "source": "namespace N { export const x: number = 1; }"
+  },
+  {
+    "name": "enum",
+    "source": "enum E { A, B = 4, C }"
+  },
+  {
+    "name": "string-enum",
+    "source": "enum E { A = \"alpha\", B = \"beta\" }"
+  },
+  {
+    "name": "const-enum",
+    "source": "const enum E { A, B }; const x = E.B;"
+  },
+  {
+    "name": "parameter-property",
+    "source": "class C { constructor(public x: number, readonly y = 1) {} }"
+  },
+  {
+    "name": "fields",
+    "source": "class C { x: number; y = 1; private z?: string; }"
+  },
+  {
+    "name": "declare-field",
+    "source": "class C { declare x: number; }"
+  },
+  {
+    "name": "decorator",
+    "source": "@sealed class C {}"
+  },
+  {
+    "name": "assertions",
+    "source": "const x = <number>foo; const y = bar as string; foo!;"
+  },
+  {
+    "name": "satisfies",
+    "source": "const x = {a: 1} satisfies Record<string,number>;"
+  },
+  {
+    "name": "generic",
+    "source": "const f = <T,>(x:T):T => x;"
+  },
+  {
+    "name": "jsx",
+    "source": "const x = <div />;"
+  },
+  {
+    "name": "import-equals",
+    "source": "import x = require(\"x\"); x();"
+  },
+  {
+    "name": "namespace-export",
+    "source": "namespace N { export let x = 1; export function f(){ return x; } }"
+  },
+  {
+    "name": "namespace-type",
+    "source": "namespace N { export type T = string; }"
+  },
+  {
+    "name": "type-export",
+    "source": "export type T = string;"
+  },
+  {
+    "name": "abstract-class",
+    "source": "abstract class C { abstract f():void; public x:number = 1; }"
+  },
+  {
+    "name": "async",
+    "source": "async function f(x:number){ return await g(x); }"
+  },
+  {
+    "name": "tuple",
+    "source": "const x: readonly [string,number] = [\"x\",1];"
+  },
+  {
+    "name": "mapped",
+    "source": "type X<T> = { [K in keyof T]?: T[K] }; const x = 1;"
+  },
+  {
+    "name": "conditional",
+    "source": "type X<T> = T extends infer U ? U : never; const x = 1;"
+  },
+  {
+    "name": "overloads",
+    "source": "function f(x:string):string; function f(x:any){return x;}"
+  },
+  {
+    "name": "export-default",
+    "source": "export default function f(x: number) {return x;}"
+  },
+  {
+    "name": "shebang",
+    "source": "#!/usr/bin/env node\nconst n:number=1;"
+  },
+  {
+    "name": "directive",
+    "source": "\"use strict\"; const n: number = 1;"
+  },
+  {
+    "name": "regex",
+    "source": "const r: RegExp = /a[b]c/gu;"
+  },
+  {
+    "name": "empty",
+    "source": ""
+  },
+  {
+    "name": "whitespace",
+    "source": "  \n\t"
+  },
+  {
+    "name": "bad",
+    "source": "const x: = 1;"
+  },
+  {
+    "name": "type-import-reference",
+    "source": "import {Foo} from \"m\"; type T=Foo;"
+  },
+  {
+    "name": "object",
+    "source": "const x: any = {a: 1, b: function(){ return 2; }, c(){}};"
+  },
+  {
+    "name": "optional",
+    "source": "let x: string | undefined; x?.trim();"
+  },
+  {
+    "name": "spread",
+    "source": "const x: number[] = [1,...other];"
+  },
+  {
+    "name": "computed-enum",
+    "source": "enum E { A = foo(), B = A + 1 }"
+  },
+  {
+    "name": "nested-namespace",
+    "source": "namespace A.B { export const x = 1; }"
+  },
+  {
+    "name": "module-string",
+    "source": "module \"foo\" { export interface X {} }"
+  },
+  {
+    "name": "declare",
+    "source": "declare const x: number; const y = 1;"
+  },
+  {
+    "name": "export-import",
+    "source": "export import x = require(\"x\");"
+  },
+  {
+    "name": "using",
+    "source": "using x = get();"
+  },
+  {
+    "name": "hashbang-type",
+    "source": "#!/bin/test\ninterface X {}"
+  },
+  {
+    "name": "comment-leading-block",
+    "source": "/* hello */ const x:number=1;"
+  },
+  {
+    "name": "comment-line-tail",
+    "source": "const x:number=1; // tail"
+  },
+  {
+    "name": "comment-block-tail",
+    "source": "const x:number=1; /* tail */"
+  },
+  {
+    "name": "comment-between",
+    "source": "const x:number=1; // tail\nconst y:string=\"hi\";"
+  },
+  {
+    "name": "comment-erased",
+    "source": "/* A */ interface A {}\n/* B */ const n=1;"
+  },
+  {
+    "name": "comment-type-trail",
+    "source": "type A=number; // type\nconst n=1;"
+  },
+  {
+    "name": "comment-function-inner",
+    "source": "function f(x:number) { // top\nreturn x; // return\n}"
+  },
+  {
+    "name": "comment-empty-body",
+    "source": "function f() { /* empty */ }"
+  },
+  {
+    "name": "comment-param",
+    "source": "function f(/* a */ x:number /* b */) { return x; }"
+  },
+  {
+    "name": "comment-object",
+    "source": "const o = { /* a */ x: 1 /* b */ };"
+  },
+  {
+    "name": "comment-array",
+    "source": "const x = [1, /* a */ 2];"
+  },
+  {
+    "name": "comment-type",
+    "source": "const x: /*type*/ number = 1;"
+  },
+  {
+    "name": "comment-standalone-block",
+    "source": "/* comment */"
+  },
+  {
+    "name": "comment-jsdoc",
+    "source": "/** docs\n * line\n */\nfunction f(x:number){return x;}"
+  },
+  {
+    "name": "comment-pure",
+    "source": "const x = /*#__PURE__*/ foo();"
+  },
+  {
+    "name": "comment-license",
+    "source": "/*! copyright */\nconst x:number=1;"
+  },
+  {
+    "name": "comment-erase-only",
+    "source": "// doc\ninterface X {}"
+  },
+  {
+    "name": "comment-hashbang",
+    "source": "#!/bin/a\n// doc\nconst n=1;"
+  },
+  {
+    "name": "class-public-uninit",
+    "source": "class C { public x:number; protected y:string; private z:boolean; }"
+  },
+  {
+    "name": "class-private-uninit",
+    "source": "class C { #x:number; #y=1; }"
+  },
+  {
+    "name": "class-definite",
+    "source": "class C { x!:number; }"
+  },
+  {
+    "name": "class-static",
+    "source": "class C { static x:number; static y=1; }"
+  },
+  {
+    "name": "class-computed",
+    "source": "class C { [f()]:number; [g()]=1; }"
+  },
+  {
+    "name": "class-declare-ambient",
+    "source": "declare class C { declare x:number; y:string; }"
+  },
+  {
+    "name": "class-override",
+    "source": "class C extends B { override x:number; override y=1; }"
+  },
+  {
+    "name": "class-accessor",
+    "source": "class C { accessor x:number=1; }"
+  },
+  {
+    "name": "class-getter",
+    "source": "class C { get x():number{return 1;} set x(v:number){} }"
+  },
+  {
+    "name": "class-method",
+    "source": "class C { public f<T>(x:T):T {return x;} }"
+  },
+  {
+    "name": "class-constructor-super",
+    "source": "class C extends B { constructor(public x:number){ super(x); } }"
+  },
+  {
+    "name": "class-constructor-default",
+    "source": "class C { constructor(public x = g()) {} }"
+  },
+  {
+    "name": "class-parameter-destructure",
+    "source": "class C { constructor(public {x}: any) {} }"
+  },
+  {
+    "name": "class-decorator-property",
+    "source": "class C { @foo x:number=1; }"
+  },
+  {
+    "name": "class-decorator-param",
+    "source": "class C { f(@foo x:number) {} }"
+  },
+  {
+    "name": "class-abstract-field",
+    "source": "abstract class C { abstract x:number; }"
+  },
+  {
+    "name": "class-index",
+    "source": "class C { [key:string]:number; }"
+  },
+  {
+    "name": "namespace-empty",
+    "source": "namespace N {}"
+  },
+  {
+    "name": "namespace-interface",
+    "source": "namespace N { interface X {} }"
+  },
+  {
+    "name": "namespace-export-interface",
+    "source": "namespace N { export interface X {} }"
+  },
+  {
+    "name": "namespace-export-type",
+    "source": "namespace N { export type T=string; }"
+  },
+  {
+    "name": "namespace-declare",
+    "source": "declare namespace N { export const x:number; }"
+  },
+  {
+    "name": "namespace-ambient",
+    "source": "declare module \"foo\" { export const x:number; }"
+  },
+  {
+    "name": "namespace-string",
+    "source": "module \"foo\" { export const x:number; }"
+  },
+  {
+    "name": "namespace-nested-types",
+    "source": "namespace A.B { export interface X {} }"
+  },
+  {
+    "name": "namespace-merged",
+    "source": "namespace N { export const x=1; } namespace N { export const y=2; }"
+  },
+  {
+    "name": "namespace-exported",
+    "source": "export namespace N { export const x=1; }"
+  },
+  {
+    "name": "namespace-function",
+    "source": "namespace N { export function f(){ return 1; } }"
+  },
+  {
+    "name": "namespace-nonconst",
+    "source": "namespace N { export let x=1; }"
+  },
+  {
+    "name": "namespace-unexported-type",
+    "source": "namespace N { type T=string; }"
+  },
+  {
+    "name": "namespace-inner-alias",
+    "source": "namespace N { export import A = M.A; }"
+  },
+  {
+    "name": "module-external-unused",
+    "source": "import x = require(\"x\"); const n=1;"
+  },
+  {
+    "name": "module-type-external",
+    "source": "import type x = require(\"x\"); const n=1;"
+  },
+  {
+    "name": "module-alias",
+    "source": "import X = N.X; X();"
+  },
+  {
+    "name": "module-type-alias",
+    "source": "import type X = N.X; const n=1;"
+  },
+  {
+    "name": "module-export-assignment",
+    "source": "const x=1; export = x;"
+  },
+  {
+    "name": "module-type-and-value",
+    "source": "import {type T, x} from \"m\"; let a:T; x();"
+  },
+  {
+    "name": "module-value-unused",
+    "source": "import {x} from \"m\"; const n=1;"
+  },
+  {
+    "name": "module-side-effect",
+    "source": "import \"m\";"
+  },
+  {
+    "name": "module-default-type",
+    "source": "import X from \"m\"; type T=X;"
+  },
+  {
+    "name": "module-react",
+    "source": "import React from \"react\"; const n=1;"
+  },
+  {
+    "name": "module-reexport-type",
+    "source": "export type {T} from \"m\";"
+  },
+  {
+    "name": "module-reexport-value",
+    "source": "export {x} from \"m\";"
+  },
+  {
+    "name": "module-dynamic",
+    "source": "const x:Promise<any>=import(\"m\");"
+  },
+  {
+    "name": "module-attributes",
+    "source": "import data from \"m\" with {type:\"json\"}; console.log(data);"
+  },
+  {
+    "name": "resource-using",
+    "source": "using x: Foo = get();"
+  },
+  {
+    "name": "resource-await-using",
+    "source": "await using x:Foo = get();"
+  },
+  {
+    "name": "resource-block-using",
+    "source": "function f(){ using x = get(); x(); }"
+  },
+  {
+    "name": "resource-for-using",
+    "source": "for (using x of xs) { f(x); }"
+  },
+  {
+    "name": "resource-for-await-using",
+    "source": "for await (using x of xs) f(x);"
+  },
+  {
+    "name": "resource-await-using-block",
+    "source": "async function f(){ await using x = get(); }"
+  },
+  {
+    "name": "enum-negative",
+    "source": "enum E { A=-1, B }"
+  },
+  {
+    "name": "enum-binary",
+    "source": "enum E { A=1<<3, B=A+2 }"
+  },
+  {
+    "name": "enum-string-concat",
+    "source": "enum E { A=\"a\"+\"b\", B=A }"
+  },
+  {
+    "name": "enum-refer-other",
+    "source": "enum E {A=1}; enum F {B=E.A}"
+  },
+  {
+    "name": "enum-merge",
+    "source": "enum E {A}; enum E {B=2}"
+  },
+  {
+    "name": "enum-export",
+    "source": "export enum E {A,B}"
+  },
+  {
+    "name": "enum-nested",
+    "source": "function f(){enum E{A};return E.A;}"
+  },
+  {
+    "name": "enum-heterogeneous",
+    "source": "enum E{A=\"a\",B=1,C}"
+  },
+  {
+    "name": "enum-declared",
+    "source": "declare enum E{A}; const n=1;"
+  },
+  {
+    "name": "enum-const-export",
+    "source": "export const enum E{A,B}"
+  },
+  {
+    "name": "enum-comment",
+    "source": "enum E {/*first*/ A, //second\nB}"
+  },
+  {
+    "name": "enum-unknown",
+    "source": "enum E{A=foo(),B}"
+  },
+  {
+    "name": "enum-nan",
+    "source": "enum E{A=NaN,B=Infinity,C=-Infinity}"
+  },
+  {
+    "name": "grammar-hex",
+    "source": "const x:number=0xff;"
+  },
+  {
+    "name": "grammar-separator",
+    "source": "const x:number=1_000;"
+  },
+  {
+    "name": "grammar-bigint",
+    "source": "const x:bigint=123n;"
+  },
+  {
+    "name": "grammar-hex-bigint",
+    "source": "const x:bigint=0xffn;"
+  },
+  {
+    "name": "grammar-string-escape",
+    "source": "const s:string=\"\\u0061\\n\";"
+  },
+  {
+    "name": "grammar-string-line",
+    "source": "const s:string='a\\\nb';"
+  },
+  {
+    "name": "grammar-directive-single",
+    "source": "'use strict'; const n=1;"
+  },
+  {
+    "name": "grammar-paren",
+    "source": "const x:number = (1 + 2);"
+  },
+  {
+    "name": "grammar-arrow-parens",
+    "source": "const f=(x:number)=>x;"
+  },
+  {
+    "name": "grammar-return-object",
+    "source": "const f=()=>({a:1});"
+  },
+  {
+    "name": "grammar-nested-object",
+    "source": "const x={a:{b:1}};"
+  },
+  {
+    "name": "grammar-destructure",
+    "source": "const {a,b:c}:Foo = x;"
+  },
+  {
+    "name": "grammar-array-spread",
+    "source": "const a:number[]=[1,,...xs];"
+  },
+  {
+    "name": "grammar-assertion-function",
+    "source": "const f=(fn as Function)(1);"
+  },
+  {
+    "name": "grammar-satisfies-arrow",
+    "source": "const f=((x:number)=>x) satisfies Fn;"
+  },
+  {
+    "name": "grammar-non-null-optional",
+    "source": "obj!.x?.[key]!;"
+  },
+  {
+    "name": "grammar-unicode-separators",
+    "source": "const s:string=\"  \";"
+  },
+  {
+    "name": "grammar-regex-slash",
+    "source": "const r:RegExp=/https?:\\/\\//;"
+  },
+  {
+    "name": "grammar-try",
+    "source": "try{f()}catch(e:unknown){g(e)}finally{h()}"
+  },
+  {
+    "name": "grammar-switch",
+    "source": "switch(x){case 1: foo(); break; default: bar();}"
+  },
+  {
+    "name": "grammar-loop",
+    "source": "for(let i:number=0;i<2;i++){ f(i); }"
+  },
+  {
+    "name": "grammar-if",
+    "source": "if (x) { f(); } else { g(); }"
+  },
+  {
+    "name": "grammar-throw",
+    "source": "function f(x:any):never{throw new Error(x);}"
+  },
+  {
+    "name": "grammar-async-arrow",
+    "source": "const f=async(x:number)=>await g(x);"
+  },
+  {
+    "name": "grammar-yield",
+    "source": "function* f(x:number){ yield x; }"
+  },
+  {
+    "name": "grammar-export-default-class",
+    "source": "export default class C {x:number=1;}"
+  },
+  {
+    "name": "grammar-interface-export",
+    "source": "export interface X{}"
+  },
+  {
+    "name": "grammar-type-satisfies",
+    "source": "const x = a satisfies T as U;"
+  },
+  {
+    "name": "grammar-assert-tsx",
+    "source": "const x=<T>value;"
+  },
+  {
+    "name": "grammar-jsx-fragment",
+    "source": "const x=<><div/></>;"
+  },
+  {
+    "name": "grammar-invalid-return",
+    "source": "return 1;"
+  },
+  {
+    "name": "grammar-invalid-duplicate",
+    "source": "const x=1; const x=2;"
+  },
+  {
+    "name": "grammar-invalid-decorator-export",
+    "source": "export @foo class C{}"
+  },
+  {
+    "name": "module-assert",
+    "source": "import data from \"m\" assert {type:\"json\"}; console.log(data);"
+  },
+  {
+    "name": "module-import-phase",
+    "source": "import source wasm from \"m\";"
+  },
+  {
+    "name": "module-export-default-type",
+    "source": "type Foo=string; export default Foo;"
+  },
+  {
+    "name": "module-import-type-used",
+    "source": "import type {Foo} from \"m\"; console.log(Foo);"
+  },
+  {
+    "name": "module-import-jsx-pragma",
+    "source": "/** @jsx h */ import {h} from \"m\"; const x=1;"
+  },
+  {
+    "name": "function-rest",
+    "source": "function f(...args:number[]):number {return args.reduce((a,b)=>a+b,0);}"
+  },
+  {
+    "name": "function-this",
+    "source": "function f(this:Foo,x:number):void{this.x=x;}"
+  },
+  {
+    "name": "function-predicate",
+    "source": "function isFoo(x:unknown):x is Foo{return !!x;}"
+  },
+  {
+    "name": "function-asserts",
+    "source": "function assert(x:unknown):asserts x{if(!x)throw Error();}"
+  },
+  {
+    "name": "function-generator",
+    "source": "function* gen<T>(xs:T[]):Generator<T>{for(const x of xs)yield x;}"
+  },
+  {
+    "name": "function-overload-export",
+    "source": "export function f(x:number):number; export function f(x:any){return x;}"
+  },
+  {
+    "name": "function-default",
+    "source": "function f(x:number=1,{a}:Foo={a:1}){return x+a;}"
+  },
+  {
+    "name": "function-arrow-destructure",
+    "source": "const f=({a}:Foo)=>a;"
+  },
+  {
+    "name": "function-nested",
+    "source": "function f(){function g(x:number){return x;} return g;}"
+  },
+  {
+    "name": "class-extends-generic",
+    "source": "class C<T> extends B<T> implements I<T> {x:T; constructor(x:T){super();this.x=x;}}"
+  },
+  {
+    "name": "class-static-block",
+    "source": "class C { static { let x:number=1; this.x=x; } }"
+  },
+  {
+    "name": "class-async-method",
+    "source": "class C { async f<T>(x:T):Promise<T>{return x;} }"
+  },
+  {
+    "name": "class-abstract-init",
+    "source": "abstract class C { abstract x:number=1; }"
+  },
+  {
+    "name": "class-declare-init",
+    "source": "class C { declare x:number=1; }"
+  },
+  {
+    "name": "class-definite-init",
+    "source": "class C { x!:number=1; }"
+  },
+  {
+    "name": "class-parameter-default-destructure",
+    "source": "class C { constructor(public {x}:any={x:1}){} }"
+  },
+  {
+    "name": "enum-shadow-nan",
+    "source": "const NaN=4; enum E {A=NaN,B}"
+  },
+  {
+    "name": "enum-shadow-infinity",
+    "source": "const Infinity=4; enum E {A=Infinity,B}"
+  },
+  {
+    "name": "enum-prior-name",
+    "source": "enum E {NaN=1,A=NaN,Infinity=5,B=Infinity}"
+  },
+  {
+    "name": "enum-expression",
+    "source": "enum E {A=Math.random(),B,C=A+2}"
+  },
+  {
+    "name": "enum-string-auto",
+    "source": "enum E {A=\"x\",B}"
+  },
+  {
+    "name": "enum-binary-nonfinite",
+    "source": "enum E {A=Infinity+1,B=NaN+2}"
+  },
+  {
+    "name": "enum-nested-scope",
+    "source": "let n=1; function f(){enum E{A=n,B};return E;}"
+  },
+  {
+    "name": "namespace-local",
+    "source": "namespace N { const x=1; export const y=x+1; }"
+  },
+  {
+    "name": "namespace-fn",
+    "source": "namespace N { export function f(x:number){return x;} }"
+  },
+  {
+    "name": "namespace-type-comment",
+    "source": "namespace N { /*doc*/ export interface X {} }"
+  },
+  {
+    "name": "namespace-redeclared",
+    "source": "class N {} namespace N {export const x=1;}"
+  },
+  {
+    "name": "namespace-alias-use",
+    "source": "namespace N {export import A=M.A; A();}"
+  },
+  {
+    "name": "namespace-enum",
+    "source": "namespace N {export enum E{A,B}}"
+  },
+  {
+    "name": "namespace-alias-collision",
+    "source": "const _N=1; namespace N {export import A=M.A;}"
+  },
+  {
+    "name": "whitespace-blanklines",
+    "source": "const a:number=1;\n\n\nfunction f(){return a;}\n\nconst b=2;"
+  },
+  {
+    "name": "whitespace-crlf",
+    "source": "// docs\r\nconst x:number=1;\r\nconst y=2;"
+  },
+  {
+    "name": "unicode-identifier",
+    "source": "const π:number=3.14; const 变量:string=\"x\";"
+  },
+  {
+    "name": "unicode-escaped-identifier",
+    "source": "const \\u0061:number=1;"
+  },
+  {
+    "name": "unicode-comment",
+    "source": "// 你好 😀\nconst x:number=1;"
+  },
+  {
+    "name": "unicode-bom",
+    "source": "﻿const x:number=1;"
+  },
+  {
+    "name": "expression-ternary",
+    "source": "const x:number=foo?bar:baz;"
+  },
+  {
+    "name": "expression-sequence",
+    "source": "const x:number=(a(),b());"
+  },
+  {
+    "name": "expression-nullish",
+    "source": "const x=foo??bar||baz;"
+  },
+  {
+    "name": "expression-new",
+    "source": "const x:Foo=new Foo<string>(1);"
+  },
+  {
+    "name": "expression-tag",
+    "source": "const x=tag<T>`hello ${value as string}`;"
+  },
+  {
+    "name": "expression-generic-call",
+    "source": "const x=fn<T,U>(a,b);"
+  },
+  {
+    "name": "expression-instantiation",
+    "source": "const f=fn<string>;"
+  },
+  {
+    "name": "expression-function",
+    "source": "const f=function named(x:number){return x;};"
+  },
+  {
+    "name": "expression-optional-call",
+    "source": "obj?.method?.<T>(x!);"
+  },
+  {
+    "name": "statement-label",
+    "source": "outer: for(let i=0;i<3;i++){if(i===1)continue outer;}"
+  },
+  {
+    "name": "statement-do",
+    "source": "do { f(); } while(x);"
+  },
+  {
+    "name": "statement-while",
+    "source": "while(x){f();}"
+  },
+  {
+    "name": "statement-catch",
+    "source": "try{f()}catch{g()}"
+  },
+  {
+    "name": "statement-empty",
+    "source": ";;;"
+  },
+  {
+    "name": "type-template",
+    "source": "type X<T extends string> = `prefix${T}`; const x=1;"
+  },
+  {
+    "name": "type-unique",
+    "source": "declare const s:unique symbol; const x=1;"
+  },
+  {
+    "name": "type-recursive",
+    "source": "type Json=string|number|{[key:string]:Json}|Json[]; const x=1;"
+  },
+  {
+    "name": "comment-after-assertion",
+    "source": "const x=foo as T /* erased? */;"
+  },
+  {
+    "name": "comment-before-type",
+    "source": "type T = /*inner*/ number; const x=1;"
+  },
+  {
+    "name": "comment-trailing-function",
+    "source": "function f(){} // tail\nconst x=1;"
+  },
+  {
+    "name": "comment-multi-block",
+    "source": "/*a*/ /*b*/ const x:number=1;"
+  },
+  {
+    "name": "comment-return",
+    "source": "function f(){return /*a*/ x as T;}"
+  },
+  {
+    "name": "comment-object-method",
+    "source": "const o={/*doc*/ f(x:number){return x;}};"
+  },
+  {
+    "name": "comment-arrow",
+    "source": "const f=/*doc*/ (x:number)=>x;"
+  },
+  {
+    "name": "comment-namespace",
+    "source": "/*doc*/ namespace N {export const x=1;}"
+  },
+  {
+    "name": "comment-enum-outside",
+    "source": "/*doc*/ enum E{A} //tail"
+  },
+  {
+    "name": "comment-import",
+    "source": "/*doc*/ import type {T} from \"m\"; const x=1;"
+  },
+  {
+    "name": "comment-export",
+    "source": "export /*doc*/ const x:number=1;"
+  },
+  {
+    "name": "comment-directive",
+    "source": "/*doc*/ \"use strict\"; const x=1;"
+  },
+  {
+    "name": "syntax-invalid-await",
+    "source": "function f(){await g();}"
+  },
+  {
+    "name": "syntax-invalid-accessor",
+    "source": "class C{ accessor x; }"
+  },
+  {
+    "name": "syntax-invalid-tsx",
+    "source": "const c=<Comp<number> value={1}/>;"
+  },
+  {
+    "name": "syntax-valid-angle",
+    "source": "const x=<Array<number>>value;"
+  },
+  {
+    "name": "syntax-satisfies-nested",
+    "source": "const x=(foo as T) satisfies U;"
+  },
+  {
+    "name": "enum-binding-dynamic-nan",
+    "source": "const NaN=foo(); enum E{A=NaN,B}"
+  },
+  {
+    "name": "enum-binding-dynamic-infinity",
+    "source": "const Infinity=foo(); enum E{A=Infinity,B}"
+  },
+  {
+    "name": "enum-binding-reassigned",
+    "source": "let n=1; n=2; enum E{A=n,B}"
+  },
+  {
+    "name": "enum-binding-after",
+    "source": "enum E{A=n,B}; const n=1;"
+  },
+  {
+    "name": "enum-binding-string",
+    "source": "const value=\"x\"; enum E{A=value,B}"
+  },
+  {
+    "name": "enum-binding-computed",
+    "source": "const n=1+2; enum E{A=n,B}"
+  },
+  {
+    "name": "enum-binding-alias",
+    "source": "const n=1;const m=n;enum E{A=m,B}"
+  },
+  {
+    "name": "enum-binding-negative",
+    "source": "const n=-1;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-binding-shadow",
+    "source": "const n=1;function f(){const n=3;enum E{A=n,B};return E;}"
+  },
+  {
+    "name": "enum-binding-call",
+    "source": "const n=1; enum E{A=foo(n),B}"
+  },
+  {
+    "name": "enum-binding-function",
+    "source": "const n=1; enum E{A=()=>n}"
+  },
+  {
+    "name": "enum-template-interpolation",
+    "source": "const n=1;enum E{A=`x${n}`}"
+  },
+  {
+    "name": "enum-string-concat-auto",
+    "source": "enum E{A=\"x\"+\"y\",B}"
+  },
+  {
+    "name": "module-default-interface",
+    "source": "interface Foo{};export default Foo;"
+  },
+  {
+    "name": "module-default-value",
+    "source": "class Foo{};export default Foo;"
+  },
+  {
+    "name": "module-default-import-type",
+    "source": "import type {Foo} from \"m\";export default Foo;"
+  },
+  {
+    "name": "comment-nested-type",
+    "source": "const x: { a: /*inside*/ number } = {a:1};"
+  },
+  {
+    "name": "comment-private",
+    "source": "class C { /*a*/ #x:number; /*b*/ y:number; z=1; }"
+  },
+  {
+    "name": "format-multivar",
+    "source": "const x:number=1,y:number=2,z=3;"
+  },
+  {
+    "name": "format-sequence",
+    "source": "function f(){let a=1;let b=2;return(a,b);}"
+  },
+  {
+    "name": "format-property-key",
+    "source": "const x={\"hello-world\":1, 2:3};"
+  },
+  {
+    "name": "format-regular-methods",
+    "source": "class C{f(){} g(){return 1;}}"
+  },
+  {
+    "name": "format-interpreter",
+    "source": "#!/usr/bin/env node\n\"use strict\";\nconst x=1;"
+  },
+  {
+    "name": "enum-shadow-nested",
+    "source": "const n=1;function f(){const n=3;enum E{A=n,B}}enum F{A=n,B}"
+  },
+  {
+    "name": "enum-shadow-parameter",
+    "source": "const n=1;function f(n:number){enum E{A=n,B}}"
+  },
+  {
+    "name": "enum-binding-reassign-before",
+    "source": "let n=1;n=2;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-binding-reassign-after",
+    "source": "let n=1;enum E{A=n,B}n=2;"
+  },
+  {
+    "name": "enum-binding-update",
+    "source": "let n=1;n++;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-forward-alias",
+    "source": "enum E{A=m,B}const m=n;const n=4;"
+  },
+  {
+    "name": "enum-circular-alias",
+    "source": "const n=m;const m=n;enum E{A=m,B}"
+  },
+  {
+    "name": "enum-self-alias",
+    "source": "const n=n;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-bound-nan-param",
+    "source": "function f(NaN:number){enum E{A=NaN,B}}"
+  },
+  {
+    "name": "enum-bound-infinity-mutated",
+    "source": "let Infinity=1;Infinity=foo();enum E{A=Infinity,B}"
+  },
+  {
+    "name": "enum-members-nonfinite-names",
+    "source": "enum E{NaN=3,Infinity=4,A=NaN,B=Infinity,C}"
+  },
+  {
+    "name": "enum-unbound-nan-nested",
+    "source": "enum E{A=NaN+2,B}"
+  },
+  {
+    "name": "enum-unbound-infinity-negative",
+    "source": "enum E{A=-Infinity,B}"
+  },
+  {
+    "name": "enum-bound-nan-binary",
+    "source": "const NaN=foo();enum E{A=NaN+1,B}"
+  },
+  {
+    "name": "enum-bound-infinity-shadow",
+    "source": "const Infinity=2;function f(){const Infinity=foo();enum E{A=Infinity,B}}"
+  },
+  {
+    "name": "enum-template-static-cooked",
+    "source": "enum E{A=`x\\ny`}"
+  },
+  {
+    "name": "enum-template-static-refs",
+    "source": "const a=1;const b=\"z\";enum E{A=`x${a}-${b}`}"
+  },
+  {
+    "name": "enum-template-dynamic",
+    "source": "enum E{A=`x${foo()}`,B}"
+  },
+  {
+    "name": "enum-template-constant-expression",
+    "source": "enum E{A=`x${1+2}`}"
+  },
+  {
+    "name": "enum-template-literal-expression",
+    "source": "enum E{A=`x${1}`}"
+  },
+  {
+    "name": "enum-template-shadowed",
+    "source": "const n=1;function f(n:number){enum E{A=`x${n}`}}"
+  },
+  {
+    "name": "enum-template-string-increment",
+    "source": "const n=1;enum E{A=`x${n}`,B}"
+  },
+  {
+    "name": "enum-string-alias-increment",
+    "source": "const s=\"x\";const n=s+\"y\";enum E{A=n,B}"
+  },
+  {
+    "name": "enum-grouping",
+    "source": "const n=(1+2)*3;enum E{A=(n-2)/2,B}"
+  },
+  {
+    "name": "enum-f64",
+    "source": "const n=0.1+0.2;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-negative-zero",
+    "source": "const n=-0;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-computed-infinity",
+    "source": "const n=1/0;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-computed-nan",
+    "source": "const n=0/0;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-unary-string-plus",
+    "source": "enum E{A=+\"3\"}"
+  },
+  {
+    "name": "enum-unary-string-negative",
+    "source": "enum E{A=-\"3\",B}"
+  },
+  {
+    "name": "enum-coerce-string-multiply",
+    "source": "const n=\"3\"*2;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-coerce-empty-string",
+    "source": "const n=\"\"-1;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-coerce-hex-string",
+    "source": "const n=\"0x10\"-1;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-coerce-invalid-string",
+    "source": "const n=\"a\"-1;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-bitwise-large",
+    "source": "const n=4294967297|0;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-shift-sign",
+    "source": "const n=-1>>>1;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-power-negative-fraction",
+    "source": "const n=(-1)**0.5;enum E{A=n,B}"
+  },
+  {
+    "name": "enum-template-negative-zero",
+    "source": "const n=-0;enum E{A=`x${n}`}"
+  },
+  {
+    "name": "comment-private-newlines",
+    "source": "class C {\n/*a*/ #x:number;\n/*b*/ y:number;\nz=1;\n}"
+  },
+  {
+    "name": "comment-private-value",
+    "source": "class C {/*a*/#x:number=1;/*b*/y:number;z=1;}"
+  },
+  {
+    "name": "comment-private-two",
+    "source": "class C {/*a*/#x:number;/*b*/#y:number;/*c*/z=1;}"
+  },
+  {
+    "name": "format-multivar-loop",
+    "source": "for(let x:number=1,y:number=2;x<y;x++){const a=1,b=2;}"
+  },
+  {
+    "name": "format-multivar-nested",
+    "source": "function f(){let x:number=1,y:number=2,z=3;}"
+  },
+  {
+    "name": "format-multivar-export",
+    "source": "export const x:number=1,y:number=2,z=3;"
+  },
+  {
+    "name": "format-multivar-uninitialized",
+    "source": "let x:number,y:string,z=3;"
+  },
+  {
+    "name": "format-multivar-comments",
+    "source": "const x:number=1,/*a*/y:number=2,z=3;"
+  },
+  {
+    "name": "enum-nested-same-name",
+    "source": "enum E{A=1}function f(){enum E{A=3,B}}"
+  },
+  {
+    "name": "enum-cross-shadow",
+    "source": "enum E{A=1}function f(){const E={A:3};enum F{B=E.A}}"
+  },
+  {
+    "name": "enum-member-shadow-binding",
+    "source": "const A=7;enum E{A=1,B=A,C}"
+  },
+  {
+    "name": "enum-multivar-bindings",
+    "source": "const a=2,b=a+3;enum E{A=b,B}"
+  },
+  {
+    "name": "enum-binding-destructured",
+    "source": "const {n}={n:1};enum E{A=n,B}"
+  },
+  {
+    "name": "enum-template-bound-dynamic-infinity",
+    "source": "const Infinity=foo();enum E{A=`x${Infinity}`}"
+  },
+  {
+    "name": "enum-coerce-whitespace",
+    "source": "const n=\" \\u00a0 \"+\"2\";enum E{A=n-1,B}"
+  },
+  {
+    "name": "enum-coerce-nonjs-whitespace",
+    "source": "const n=\"\\u0085\";enum E{A=n-1,B}"
+  },
+  {
+    "name": "enum-large-decimal",
+    "source": "enum E{A=1000000,B=1e-7,C=1e21}"
+  },
+  {
+    "name": "enum-call-with-template",
+    "source": "enum E{A=foo(`x${bar()}`),B}"
+  },
+  {
+    "name": "format-multivar-loop-in",
+    "source": "for(var x in y){let a=1,b=2;}"
+  },
+  {
+    "name": "comment-private-line",
+    "source": "class C { //a\n#x:number; //b\ny:number;z=1;}"
+  },
+  {
+    "name": "enum-template-unbound-nan",
+    "source": "enum E{A=`x${NaN}`}"
+  },
+  {
+    "name": "enum-template-unbound-infinity",
+    "source": "enum E{A=`x${Infinity}`}"
+  },
+  {
+    "name": "enum-template-member-ref",
+    "source": "enum E{A=1}enum F{A=`x${E.A}`}"
+  },
+  {
+    "name": "enum-template-dynamic-member-ref",
+    "source": "const o={n:1};enum E{A=`x${o.n}`}"
+  },
+  {
+    "name": "enum-nan-expression-group",
+    "source": "enum E{A=(NaN+1)*2,B}"
+  },
+  {
+    "name": "enum-nan-bound-const-string",
+    "source": "const NaN=\"x\";enum E{A=NaN}"
+  },
+  {
+    "name": "enum-infinity-bound-alias",
+    "source": "const n=foo();const Infinity=n;enum E{A=Infinity,B}"
+  },
+  {
+    "name": "enum-negative-zero-direct",
+    "source": "enum E{A=-0,B}"
+  },
+  {
+    "name": "enum-coercion-template-static",
+    "source": "const n=\"2\"*3;enum E{A=`x${n}`}"
+  },
+  {
+    "name": "enum-string-plus-increment",
+    "source": "enum E{A=+\"x\",B}"
+  },
+  {
+    "name": "enum-string-negate-increment",
+    "source": "enum E{A=-\"x\",B}"
+  },
+  {
+    "name": "enum-shift-negative-count",
+    "source": "enum E{A=1<<-1,B}"
+  },
+  {
+    "name": "enum-mutation-inner-scope",
+    "source": "let n=1;function f(){n=2}enum E{A=n,B}"
+  },
+  {
+    "name": "enum-shadow-inner-mutation",
+    "source": "const n=1;function f(){let n=2;n=3;enum E{A=n,B}}enum F{A=n,B}"
+  },
+  {
+    "name": "enum-template-nested-call-expression",
+    "source": "const n=foo();enum E{A=`${n}`,B}"
+  },
+  {
+    "name": "enum-template-cooked-backslash",
+    "source": "const n=1;enum E{A=`\\t${n}\\n`}"
+  },
+  {
+    "name": "enum-template-member-string-auto",
+    "source": "enum E{A=1}enum F{A=`x${E.A}`,B}"
+  },
+  {
+    "name": "enum-nonfinite-evaluation-order",
+    "source": "enum E{A=foo()+NaN,B}"
+  },
+  {
+    "name": "enum-template-binary-nonfinite",
+    "source": "enum E{A=`x${NaN+1}`}"
+  },
+  {
+    "name": "enum-template-array-purity",
+    "source": "enum E{A=`x${[1,2]}`}"
+  },
+  {
+    "name": "enum-template-object-purity",
+    "source": "enum E{A=`x${{n:1}}}`}"
+  }
+]

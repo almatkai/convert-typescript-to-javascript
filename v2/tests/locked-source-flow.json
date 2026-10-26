@@ -1,0 +1,279 @@
+[
+  {
+    "name": "copy-success",
+    "command": "copy",
+    "source": "const value:number=1;",
+    "expected": {
+      "flow": [
+        [
+          "selected"
+        ],
+        [
+          "copy",
+          "const value = 1;"
+        ],
+        [
+          "HUD",
+          "Copied code to clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "copy-empty",
+    "command": "copy",
+    "source": "",
+    "expected": {
+      "flow": [
+        [
+          "selected"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "copy-invalid",
+    "command": "copy",
+    "source": "const x: = 1;",
+    "expected": {
+      "flow": [
+        [
+          "selected"
+        ],
+        [
+          "HUD",
+          "Failed to transform TypeScript to JavaScript"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "copy-read-error",
+    "command": "copy",
+    "source": "const value:number=1;",
+    "failRead": true,
+    "expected": {
+      "flow": [
+        [
+          "selected"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "copy-effect-error",
+    "command": "copy",
+    "source": "const value:number=1;",
+    "failEffect": true,
+    "expected": {
+      "flow": [
+        [
+          "selected"
+        ],
+        [
+          "copy",
+          "const value = 1;"
+        ],
+        [
+          "HUD",
+          "effect failed"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-success",
+    "command": "paste",
+    "source": "const value:number=1;",
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "paste",
+          "const value = 1;"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-empty",
+    "command": "paste",
+    "source": "",
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-invalid",
+    "command": "paste",
+    "source": "const x: = 1;",
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "HUD",
+          "Failed to transform TypeScript to JavaScript"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-read-error",
+    "command": "paste",
+    "source": "const value:number=1;",
+    "failRead": true,
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-effect-error",
+    "command": "paste",
+    "source": "const value:number=1;",
+    "failEffect": true,
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "paste",
+          "const value = 1;"
+        ],
+        [
+          "HUD",
+          "effect failed"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-file-with-text",
+    "command": "paste",
+    "source": "const value:number=1;",
+    "file": "file:///owned-fixture",
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-file-only",
+    "command": "paste",
+    "source": null,
+    "file": "owned-file",
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-file-and-text",
+    "command": "paste",
+    "source": "const value:number=1;",
+    "file": "owned-file",
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-file-truthy-object",
+    "command": "paste",
+    "source": "const value:number=1;",
+    "file": {},
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-missing-text",
+    "command": "paste",
+    "source": null,
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  },
+  {
+    "name": "paste-snapshot-read-error",
+    "command": "paste",
+    "source": "const value:number=1;",
+    "failRead": true,
+    "expected": {
+      "flow": [
+        [
+          "read"
+        ],
+        [
+          "HUD",
+          "No text found in clipboard"
+        ]
+      ]
+    }
+  }
+]

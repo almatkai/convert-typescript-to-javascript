@@ -1,0 +1,1644 @@
+[
+  {
+    "name": "addr2line",
+    "version": "0.25.1",
+    "license": "Apache-2.0 OR MIT",
+    "repository": "https://github.com/gimli-rs/addr2line",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "e99d88d232bf57d70f0fb87f6b496d44b6653f99f8a63d250a54c61ea4bcde40"
+    }
+  },
+  {
+    "name": "adler2",
+    "version": "2.0.1",
+    "license": "0BSD OR MIT OR Apache-2.0",
+    "repository": "https://github.com/oyvindln/adler2",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "8ada45cd9f843acf64e4722ae262c622a2b3b3007c7310ef36ac1061a30f6adb",
+      "LICENSE-0BSD": "861399f8c21c042b110517e76dc6b63a2b334276c8cf17412fc3c8908ca8dc17",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "allocator-api2",
+    "version": "0.2.21",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/zakarumych/allocator-api2",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "20fe7b00e904ed690e3b9fd6073784d3fc428141dbd10b81c01fd143d0797f58",
+      "LICENSE-MIT": "36516aefdc84c5d5a1e7485425913a22dbda69eb1930c5e84d6ae4972b5194b9"
+    }
+  },
+  {
+    "name": "assert-unchecked",
+    "version": "0.1.2",
+    "license": "MIT",
+    "repository": "https://github.com/skmendez/assert-unchecked",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "Cargo.toml.orig": "2a0f085073709b93952cdb4b3829088eaf6cefcbf784c51e3c38cd6092d4a403",
+      "README.md": "e40ce534795fdbf49803e011153b63f11d93a59af40e845f0ff51910cc904ab3",
+      "src--lib.rs": "62c2a0296a85a1245935c97653c1d17a1ea9669d8da42b3d3d5edae910f4afd2",
+      "upstream-tree.json": "8bce66c2272d8aa5192736dc5c2d2648a852412e3e723f43cbc8bda2ab5e79cd"
+    },
+    "licensingNote": "Exact published crate and immutable upstream d01c962b347e1957dd25f5df0669c4a68e483d1f tree were inspected, including README.md and src/lib.rs. Cargo.toml declares MIT; neither tree contains a grant/copyright text. Authentic declaration/source/tree retained; this is a precise evidence limitation, not a fabricated legal approval gate."
+  },
+  {
+    "name": "autocfg",
+    "version": "1.5.1",
+    "license": "Apache-2.0 OR MIT",
+    "repository": "https://github.com/cuviper/autocfg",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac"
+    }
+  },
+  {
+    "name": "backtrace",
+    "version": "0.3.76",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-lang/backtrace-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    }
+  },
+  {
+    "name": "base64",
+    "version": "0.22.1",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/marshallpierce/rust-base64",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "0dd882e53de11566d50f8e8e2d5a651bcf3fabee4987d70f306233cf39094ba7"
+    }
+  },
+  {
+    "name": "base64-simd",
+    "version": "0.8.0",
+    "license": "MIT",
+    "repository": "https://github.com/Nugine/simd",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "71674605ec4c087fe9eb534e3e4f9e26eb2e4aabcd76a29fd156c6a844d44b3d"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/Nugine/simd/d74c030d9dc4f3cae02146d1f497ff62726ef09a/LICENSE"
+    }
+  },
+  {
+    "name": "bitflags",
+    "version": "2.13.2",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/bitflags/bitflags",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    }
+  },
+  {
+    "name": "block-buffer",
+    "version": "0.10.4",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/RustCrypto/utils",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "LICENSE-MIT": "d5c22aa3118d240e877ad41c5d9fa232f9c77d757d4aac0c2f943afc0a95e0ef"
+    }
+  },
+  {
+    "name": "bumpalo",
+    "version": "3.17.0",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/fitzgen/bumpalo",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "65f94e99ddaf4f5d1782a6dae23f35d4293a9a01444a13135a6887017d353cee"
+    }
+  },
+  {
+    "name": "bytes",
+    "version": "1.12.1",
+    "license": "MIT",
+    "repository": "https://github.com/tokio-rs/bytes",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "45f522cacecb1023856e46df79ca625dfc550c94910078bd8aec6e02880b3d42"
+    }
+  },
+  {
+    "name": "castaway",
+    "version": "0.2.4",
+    "license": "MIT",
+    "repository": "https://github.com/sagebind/castaway",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "f98e09091d5ae02b2f2ec1ead4f7f28c4c44d1cb98b078739ba67091637e170c"
+    }
+  },
+  {
+    "name": "cfg-if",
+    "version": "1.0.5",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-lang/cfg-if",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    }
+  },
+  {
+    "name": "compact_str",
+    "version": "0.8.2",
+    "license": "MIT",
+    "repository": "https://github.com/ParkMyCar/compact_str",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "0d52feec79589df30138dad3800323fe5686b764b73347330a2dfef8ac83efe8"
+    }
+  },
+  {
+    "name": "cow-utils",
+    "version": "0.1.3",
+    "license": "MIT",
+    "repository": "https://github.com/RReverser/cow-utils-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "59033153d7f67e7b35123798831c5905a725ea84c9face9d91d0ae7e1de6228f"
+    }
+  },
+  {
+    "name": "cpufeatures",
+    "version": "0.2.17",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/RustCrypto/utils",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "LICENSE-MIT": "ae9baa7beea910273c2f384c2a6b721fb7bd02bda3436074a1072e4ee689f985"
+    }
+  },
+  {
+    "name": "crypto-common",
+    "version": "0.1.7",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/RustCrypto/traits",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "LICENSE-MIT": "3521672491a3479422d5fe1aca6645dd2984090f85da6e5205abfb18fb7a6897"
+    }
+  },
+  {
+    "name": "deranged",
+    "version": "0.5.9",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/jhpratt/deranged",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-Apache": "edd65bdd88957a205c47d53fa499eed8865a70320f0f03f6391668cb304ea376",
+      "LICENSE-MIT": "231c837c45eb53f108fb48929e488965bc4fcc14e9ea21d35f50e6b99d98685b"
+    }
+  },
+  {
+    "name": "digest",
+    "version": "0.10.7",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/RustCrypto/traits",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "LICENSE-MIT": "9e0dfd2dd4173a530e238cb6adb37aa78c34c6bc7444e0e10c1ab5d8881f63ba"
+    }
+  },
+  {
+    "name": "either",
+    "version": "1.19.0",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rayon-rs/either",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "7576269ea71f767b99297934c0b2367532690f8c4badc695edf8e04ab6a1e545"
+    }
+  },
+  {
+    "name": "equivalent",
+    "version": "1.0.3",
+    "license": "Apache-2.0 OR MIT",
+    "repository": "https://github.com/indexmap-rs/equivalent",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "7365cc8878a1d7ce155a58c4ca09c3d7a6be413efa5334a80ea842912b669349"
+    }
+  },
+  {
+    "name": "errno",
+    "version": "0.3.14",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/lambda-fairy/rust-errno",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "8764a597675778ddfd4e25f81b08a05dbcf089ac05662df7613fe67f150e3aa2"
+    }
+  },
+  {
+    "name": "fastrand",
+    "version": "2.5.0",
+    "license": "Apache-2.0 OR MIT",
+    "repository": "https://github.com/smol-rs/fastrand",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "fixedbitset",
+    "version": "0.5.7",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/petgraph/fixedbitset",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "ce592787ff2321feab698a4c612237f4378cc658ebb1d472913e5802cc47afb4"
+    }
+  },
+  {
+    "name": "futures-core",
+    "version": "0.3.34",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "LICENSE-MIT": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd"
+    }
+  },
+  {
+    "name": "futures-task",
+    "version": "0.3.34",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "LICENSE-MIT": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd"
+    }
+  },
+  {
+    "name": "futures-util",
+    "version": "0.3.34",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-lang/futures-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "275c491d6d1160553c32fd6127061d7f9606c3ea25abfad6ca3f6ed088785427",
+      "LICENSE-MIT": "6652c868f35dfe5e8ef636810a4e576b9d663f3a17fb0f5613ad73583e1b88fd"
+    }
+  },
+  {
+    "name": "generic-array",
+    "version": "0.14.7",
+    "license": "MIT",
+    "repository": "https://github.com/fizyk20/generic-array.git",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "c09aae9d3c77b531f56351a9947bc7446511d6b025b3255312d3e3442a9a7583"
+    }
+  },
+  {
+    "name": "getrandom",
+    "version": "0.4.3",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-random/getrandom",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf",
+      "LICENSE-MIT": "523a42c25d245dde9c015f882cec7f4555aad883382a6cf19b4b7d9b2cd5419b"
+    }
+  },
+  {
+    "name": "gimli",
+    "version": "0.32.3",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/gimli-rs/gimli",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0"
+    }
+  },
+  {
+    "name": "hashbrown",
+    "version": "0.15.5",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-lang/hashbrown",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2"
+    }
+  },
+  {
+    "name": "hashbrown",
+    "version": "0.17.1",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-lang/hashbrown",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "ff8f68cb076caf8cefe7a6430d4ac086ce6af2ca8ce2c4e5a2004d4552ef52a2"
+    }
+  },
+  {
+    "name": "indexmap",
+    "version": "2.14.2",
+    "license": "Apache-2.0 OR MIT",
+    "repository": "https://github.com/indexmap-rs/indexmap",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "ecc269ef87fd38a1d98e30bfac9ba964a9dbd9315c3770fed98d4d7cb5882055"
+    }
+  },
+  {
+    "name": "itertools",
+    "version": "0.14.0",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-itertools/itertools",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "7576269ea71f767b99297934c0b2367532690f8c4badc695edf8e04ab6a1e545"
+    }
+  },
+  {
+    "name": "itoa",
+    "version": "1.0.18",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/itoa",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "js-sys",
+    "version": "0.3.106",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/js-sys",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    }
+  },
+  {
+    "name": "libc",
+    "version": "0.2.191",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-lang/libc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "123a331b5dbf04c30097fa43b8f858bc85df671fe776de498d01f3d6b7c1f69e"
+    }
+  },
+  {
+    "name": "linux-raw-sys",
+    "version": "0.12.1",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "repository": "https://github.com/sunfishcode/linux-raw-sys",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-Apache-2.0_WITH_LLVM-exception": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5",
+      "COPYRIGHT": "3290ae0fbc9ddb77d2239121d710f0bb9d31b3b4744e6d97fe01e652b4c1870b",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "memchr",
+    "version": "2.8.3",
+    "license": "Unlicense OR MIT",
+    "repository": "https://github.com/BurntSushi/memchr",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "COPYING": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f",
+      "UNLICENSE": "7e12e5df4bae12cb21581ba157ced20e1986a0508dd10d0e8a4ab9a4cf94e85c",
+      "LICENSE-MIT": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f"
+    }
+  },
+  {
+    "name": "miniz_oxide",
+    "version": "0.8.9",
+    "license": "MIT OR Zlib OR Apache-2.0",
+    "repository": "https://github.com/Frommi/miniz_oxide/tree/master/miniz_oxide",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-MIT.md": "799e9ca9d179295ef372f25d3769cdda7d25bb2668add6a6a1e22d1e4c678b8d",
+      "LICENSE-ZLIB.md": "0a54e647fe54104658b5e563c04c6f9edf251710e47bce692e0bd990a4ddaa39",
+      "LICENSE": "4108245a1f2df9d4e94df8abed5b4ba0759bb2f9b40a6b939f1be141077ae50b",
+      "LICENSE-APACHE.md": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    }
+  },
+  {
+    "name": "mio",
+    "version": "1.2.4",
+    "license": "MIT",
+    "repository": "https://github.com/tokio-rs/mio",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "07919255c7e04793d8ea760d6c2ce32d19f9ff02bdbdde3ce90b1e1880929a9b"
+    }
+  },
+  {
+    "name": "nom",
+    "version": "8.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/rust-bakery/nom",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "4dbda04344456f09a7a588140455413a9ac59b6b26a1ef7cdf9c800c012d87f0"
+    }
+  },
+  {
+    "name": "nonmax",
+    "version": "0.5.5",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/LPGhatguy/nonmax",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "c8b25bb75fd899b6f16794dc8173400f3221a204afb79cd39c3659c955029381",
+      "LICENSE-MIT": "a7a9cf0c93716fc4861165716257701f7363402abfe748bdac1a802cfcd2fa49"
+    }
+  },
+  {
+    "name": "num-bigint",
+    "version": "0.4.8",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-num/num-bigint",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    }
+  },
+  {
+    "name": "num-conv",
+    "version": "0.1.0",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/jhpratt/num-conv",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-Apache": "c0fd5f9df8d17e13587f8fe403d2326b835e60d532817d0b42ae4aea44209251",
+      "LICENSE-MIT": "af85fff507d80e6c7ff242acfc4b0a7f5de9a72286bb3c883c782772ca4b4402"
+    }
+  },
+  {
+    "name": "num-integer",
+    "version": "0.1.47",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-num/num-integer",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    }
+  },
+  {
+    "name": "num-traits",
+    "version": "0.2.19",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-num/num-traits",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+    }
+  },
+  {
+    "name": "object",
+    "version": "0.37.3",
+    "license": "Apache-2.0 OR MIT",
+    "repository": "https://github.com/gimli-rs/object",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "0b74dfa0bcee5c420c6b7f67b4b2658f9ab8388c97b8e733975f2cecbdd668a6"
+    }
+  },
+  {
+    "name": "once_cell",
+    "version": "1.21.4",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/matklad/once_cell",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "outref",
+    "version": "0.5.2",
+    "license": "MIT",
+    "repository": "https://github.com/Nugine/outref",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "a00511478c83ebb464ef19d840f061c7444adc4636bb561900e75c5808cfc6cc"
+    }
+  },
+  {
+    "name": "owo-colors",
+    "version": "4.4.0",
+    "license": "MIT",
+    "repository": "https://github.com/owo-colors/owo-colors",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "267afe8db5697b4b668d36a5a0d481b67d16ae751465e9ddf03d1e77a79c140a"
+    }
+  },
+  {
+    "name": "oxc-browserslist",
+    "version": "2.0.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc-browserslist",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    }
+  },
+  {
+    "name": "oxc-miette",
+    "version": "1.0.2",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/zkat/miette",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    }
+  },
+  {
+    "name": "oxc-miette-derive",
+    "version": "1.0.2",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/zkat/miette",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "02872c3ff23e11da5a9b3289df11b581be36b4956bfb7cfdc3d8043f92d64794"
+    }
+  },
+  {
+    "name": "oxc_allocator",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_ast",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_ast_macros",
+    "version": "0.58.1",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/7856a0b091a39c2dfe254f4b8df8b8c3feae279f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_ast_visit",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_cfg",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_codegen",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": null,
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_data_structures",
+    "version": "0.58.1",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/7856a0b091a39c2dfe254f4b8df8b8c3feae279f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_diagnostics",
+    "version": "0.58.1",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/7856a0b091a39c2dfe254f4b8df8b8c3feae279f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_ecmascript",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_estree",
+    "version": "0.58.1",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/7856a0b091a39c2dfe254f4b8df8b8c3feae279f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_index",
+    "version": "3.1.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc-index-vec",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    }
+  },
+  {
+    "name": "oxc_parser",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_regular_expression",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_semantic",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_sourcemap",
+    "version": "3.0.2",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc-sourcemap",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    }
+  },
+  {
+    "name": "oxc_span",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_syntax",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "oxc_transformer",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": null,
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    },
+    "licensingNote": "Private path fork of exact published 0.58.0, upstream commit and original-file hashes in vendor/oxc_transformer/UPSTREAM.json; authentic upstream MIT license retained."
+  },
+  {
+    "name": "oxc_traverse",
+    "version": "0.58.0",
+    "license": "MIT",
+    "repository": "https://github.com/oxc-project/oxc",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE"
+    }
+  },
+  {
+    "name": "petgraph",
+    "version": "0.7.1",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/petgraph/petgraph",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "7576269ea71f767b99297934c0b2367532690f8c4badc695edf8e04ab6a1e545"
+    }
+  },
+  {
+    "name": "phf",
+    "version": "0.11.3",
+    "license": "MIT",
+    "repository": "https://github.com/rust-phf/rust-phf",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38"
+    }
+  },
+  {
+    "name": "phf_generator",
+    "version": "0.11.3",
+    "license": "MIT",
+    "repository": "https://github.com/rust-phf/rust-phf",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38"
+    }
+  },
+  {
+    "name": "phf_macros",
+    "version": "0.11.3",
+    "license": "MIT",
+    "repository": "https://github.com/rust-phf/rust-phf",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38"
+    }
+  },
+  {
+    "name": "phf_shared",
+    "version": "0.11.3",
+    "license": "MIT",
+    "repository": "https://github.com/rust-phf/rust-phf",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "0ab4d106b6faac07fb6a051815fd1b4d862d730895e2d7d7358c2f13565e7a38"
+    }
+  },
+  {
+    "name": "pin-project-lite",
+    "version": "0.2.17",
+    "license": "Apache-2.0 OR MIT",
+    "repository": "https://github.com/taiki-e/pin-project-lite",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "powerfmt",
+    "version": "0.2.1",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/jhpratt/powerfmt",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-Apache": "155420c6403d4e0fca34105e3c03fdd6939b64c393c7ec6f95f5b72c5474eab0",
+      "LICENSE-MIT": "070dbc7dda03a29296f2d58bdb9b7331af90f2abc9f31df22875d1eabaf29852"
+    }
+  },
+  {
+    "name": "proc-macro2",
+    "version": "1.0.107",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/proc-macro2",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "quote",
+    "version": "1.0.47",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/quote",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "r-efi",
+    "version": "6.0.0",
+    "license": "MIT OR Apache-2.0 OR LGPL-2.1-or-later",
+    "repository": "https://github.com/r-efi/r-efi",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "Cargo.toml.orig": "b8e89c393831c2161b6d390bd40422910ac34f02903ad39edd85ec38d4513fef",
+      "README.md": "420f65fec3ba2e89d49da51b222d2881d26959037a7b7d3794143db4bd4627b1",
+      "src--lib.rs": "6215dd213f39f5180f7cfad599df1d17d50f089dc1ad0c840bc647a0bc421953",
+      "AUTHORS": "d027e91dbc9cdbb2f1190068e498bd6b61cff022b6a032b191021ba658d96111"
+    },
+    "licensingNote": "Published AUTHORS contains authentic copyright notices and MIT grant (also Apache/LGPL declarations); retained verbatim. Prior filename-based missing-grant assertion corrected."
+  },
+  {
+    "name": "rand",
+    "version": "0.8.8",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-random/rand",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "35242e7a83f69875e6edeff02291e688c97caafe2f8902e4e19b49d3e78b4cab",
+      "COPYRIGHT": "90eb64f0279b0d9432accfa6023ff803bc4965212383697eee27a0f426d5f8d5",
+      "LICENSE-MIT": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b"
+    }
+  },
+  {
+    "name": "rand_core",
+    "version": "0.6.4",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rust-random/rand",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "6df43f6f4b5d4587f3d8d71e45532c688fd168afa5fe89d571cb32fa09c4ef51",
+      "COPYRIGHT": "90eb64f0279b0d9432accfa6023ff803bc4965212383697eee27a0f426d5f8d5",
+      "LICENSE-MIT": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b"
+    }
+  },
+  {
+    "name": "ropey",
+    "version": "1.6.1",
+    "license": "MIT",
+    "repository": "https://github.com/cessen/ropey",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE.md": "36e1d4fc5ead85c413a3d83ea8e586711277c4bf09e63206cb7ae16d9cf8ecd9"
+    }
+  },
+  {
+    "name": "rustc-demangle",
+    "version": "0.1.28",
+    "license": "MIT/Apache-2.0",
+    "repository": "https://github.com/rust-lang/rustc-demangle",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    }
+  },
+  {
+    "name": "rustc-hash",
+    "version": "2.1.3",
+    "license": "Apache-2.0 OR MIT",
+    "repository": "https://github.com/rust-lang/rustc-hash",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "95bd3988beee069fa2848f648dab43cc6e0b2add2ad6bcb17360caf749802bcc",
+      "LICENSE-MIT": "30fefc3a7d6a0041541858293bcbea2dde4caa4c0a5802f996a7f7e8c0085652"
+    }
+  },
+  {
+    "name": "rustix",
+    "version": "1.1.5",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "repository": "https://github.com/bytecodealliance/rustix",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-Apache-2.0_WITH_LLVM-exception": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5",
+      "COPYRIGHT": "377c2e7c53250cc5905c0b0532d35973392af16ffb9596a41d99d202cf3617c9",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "rustversion",
+    "version": "1.0.23",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/rustversion",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "ryu",
+    "version": "1.0.23",
+    "license": "Apache-2.0 OR BSL-1.0",
+    "repository": "https://github.com/dtolnay/ryu",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-BOOST": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566"
+    }
+  },
+  {
+    "name": "ryu-js",
+    "version": "1.0.3",
+    "license": "Apache-2.0 OR BSL-1.0",
+    "repository": "https://github.com/boa-dev/ryu-js",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-BOOST": "c9bff75738922193e67fa726fa225535870d2aa1059f91452c411736284ad566"
+    }
+  },
+  {
+    "name": "self_cell",
+    "version": "1.3.0",
+    "license": "Apache-2.0 OR GPL-2.0-only",
+    "repository": "https://github.com/Voultapher/self_cell",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-GPLv2": "f9c375a1be4a41f7b70301dd83c91cb89e41567478859b77eef375a52d782505",
+      "LICENSE-APACHE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    }
+  },
+  {
+    "name": "seq-macro",
+    "version": "0.3.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/seq-macro",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "serde",
+    "version": "1.0.229",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/serde-rs/serde",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "serde_core",
+    "version": "1.0.229",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/serde-rs/serde",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "serde_derive",
+    "version": "1.0.229",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/serde-rs/serde",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "serde_json",
+    "version": "1.0.140",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/serde-rs/json",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "sha1",
+    "version": "0.10.7",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/RustCrypto/hashes",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a9040321c3712d8fd0b09cf52b17445de04a23a10165049ae187cd39e5c86be5",
+      "LICENSE-MIT": "b4eb00df6e2a4d22518fcaa6a2b4646f249b3a3c9814509b22bd2091f1392ff1"
+    }
+  },
+  {
+    "name": "signal-hook-registry",
+    "version": "1.4.8",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/vorner/signal-hook",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "503558bfefe66ca15e4e3f7955b3cb0ec87fd52f29bf24b336af7bd00e946d5c"
+    }
+  },
+  {
+    "name": "simdutf8",
+    "version": "0.1.5",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/rusticstuff/simdutf8",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-Apache": "0cec06e0e55fbc3dc5cee4fca9b607f66cb8f4e4dbcf3b3c013594dd156732e9",
+      "LICENSE-MIT": "1847e0e0698142ed4347c1441a9fa81c8fbddd44b1d8bbcd5e3647f991759d7f"
+    }
+  },
+  {
+    "name": "siphasher",
+    "version": "1.0.4",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/jedisct1/rust-siphash",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "COPYING": "c962ee4d1d05ddc138b202b2540219ebc57893fcf97b364852094a9a94ce1365",
+      "LICENSE-MIT": "f9c4c77baa3828004ee54b8a4f2db2e88ed44a6237a493965bf551fac0fcb62d"
+    }
+  },
+  {
+    "name": "slab",
+    "version": "0.4.12",
+    "license": "MIT",
+    "repository": "https://github.com/tokio-rs/slab",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "8ce0830173fdac609dfb4ea603fdc002c2f4af0dc9b1a005653f5da9cf534b18"
+    }
+  },
+  {
+    "name": "smallvec",
+    "version": "1.16.4",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/servo/rust-smallvec",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "0b28172679e0009b655da42797c03fd163a3379d5cfa67ba1f1655e974a2a1a9"
+    }
+  },
+  {
+    "name": "smawk",
+    "version": "0.3.3",
+    "license": "MIT",
+    "repository": "https://github.com/mgeisler/smawk",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "0173035e025d60b1d19197840a93a887f6da8b075c01dd10601fcb6414a0043b"
+    }
+  },
+  {
+    "name": "static_assertions",
+    "version": "1.1.0",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/nvzqz/static-assertions-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "LICENSE-MIT": "ea084a2373ebc1f0902c09266e7bf25a05ab3814c1805bb017ffa7308f90c061"
+    }
+  },
+  {
+    "name": "str_indices",
+    "version": "0.4.4",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/cessen/str_indices",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "0a7701ecfa4e71678c0b4ef49a23a59d204f4d8a6bffee4a67b241bb5cf70363",
+      "LICENSE-MIT": "508a77d2e7b51d98adeed32648ad124b7b30241a8e70b2e72c99f92d8e5874d1"
+    }
+  },
+  {
+    "name": "syn",
+    "version": "2.0.119",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/syn",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "syn",
+    "version": "3.0.9",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/syn",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "tempfile",
+    "version": "3.27.0",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/Stebalien/tempfile",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "8b427f5bc501764575e52ba4f9d95673cf8f6d80a86d0d06599852e1a9a20a36"
+    }
+  },
+  {
+    "name": "textwrap",
+    "version": "0.16.2",
+    "license": "MIT",
+    "repository": "https://github.com/mgeisler/textwrap",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "ce93600c49fbb3e14df32efe752264644f6a2f8e08a735ba981725799e5309ef"
+    }
+  },
+  {
+    "name": "tezbar-extension-sdk",
+    "version": "0.1.1",
+    "license": "Apache-2.0",
+    "repository": null,
+    "source": "git+https://github.com/almatkai/tezbar-extension-sdk-rust?rev=e955911f0bf5b558f9d3eb5183df0adc95c22af2#e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+    "licenseFiles": {
+      "LICENSE": "0ed6b1b2760294d4aaaa45be38e166fcc0168e1dd5190423c096fcbe1c94afbf",
+      "NOTICE": "aa04ab6115cfc2e2172b0613013611a59dc487c70f3e2dfbd2f135326d703c74"
+    }
+  },
+  {
+    "name": "thiserror",
+    "version": "1.0.69",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/thiserror",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "thiserror",
+    "version": "2.0.21",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/thiserror",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "thiserror-impl",
+    "version": "1.0.69",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/thiserror",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "thiserror-impl",
+    "version": "2.0.21",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/dtolnay/thiserror",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "time",
+    "version": "0.3.45",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/time-rs/time",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-Apache": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "LICENSE-MIT": "2537228d9a1b44a5dc595241349cae7090b326c8de165aaf89bfddef4a00d0fc"
+    }
+  },
+  {
+    "name": "time-core",
+    "version": "0.1.7",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/time-rs/time",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-Apache": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "LICENSE-MIT": "2537228d9a1b44a5dc595241349cae7090b326c8de165aaf89bfddef4a00d0fc"
+    }
+  },
+  {
+    "name": "tokio",
+    "version": "1.44.2",
+    "license": "MIT",
+    "repository": "https://github.com/tokio-rs/tokio",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "253cd04c6714889df2d32f3f64d669179a1c95c76ac43c40882c52eb06bc3552"
+    }
+  },
+  {
+    "name": "tokio-macros",
+    "version": "2.5.0",
+    "license": "MIT",
+    "repository": "https://github.com/tokio-rs/tokio",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "0b83dc40cba89b9922bb84b0a9c7d2768ce37c1d7e138b7424fd4549915778c9"
+    }
+  },
+  {
+    "name": "typenum",
+    "version": "1.20.1",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/paholg/typenum",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "516b24e051bf5630880ebbd55c40a25ce9552ebaf8970a53e8976eb70e522406",
+      "LICENSE": "db11fec9946737df39ca3898d9cd8c10ec6f6c3a884a6802b0ad0b81b4e8f23a",
+      "LICENSE-MIT": "a825bd853ab71619a4923d7b4311221427848070ff44d990da39b0b274c1683f"
+    }
+  },
+  {
+    "name": "unicode-id-start",
+    "version": "1.5.0",
+    "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+    "repository": "https://github.com/Boshen/unicode-id-start",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-UNICODE": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1",
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "unicode-ident",
+    "version": "1.0.27",
+    "license": "(MIT OR Apache-2.0) AND Unicode-3.0",
+    "repository": "https://github.com/dtolnay/unicode-ident",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-UNICODE": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1",
+      "LICENSE-APACHE": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "unicode-linebreak",
+    "version": "0.1.5",
+    "license": "Apache-2.0",
+    "repository": "https://github.com/axelf4/unicode-linebreak",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    }
+  },
+  {
+    "name": "unicode-width",
+    "version": "0.2.2",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/unicode-rs/unicode-width",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "COPYRIGHT": "23860c2a7b5d96b21569afedf033469bab9fe14a1b24a35068b8641c578ce24d",
+      "LICENSE-MIT": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0"
+    }
+  },
+  {
+    "name": "uuid",
+    "version": "1.23.3",
+    "license": "Apache-2.0 OR MIT",
+    "repository": "https://github.com/uuid-rs/uuid",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "436bc5a105d8e57dcd8778730f3754f7bf39c14d2f530e4cde4bd2d17a83ec3d"
+    }
+  },
+  {
+    "name": "version_check",
+    "version": "0.9.5",
+    "license": "MIT/Apache-2.0",
+    "repository": "https://github.com/SergioBenitez/version_check",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "b7e650f3fce5c53249d1cdc608b54df156a97edd636cf9d23498d0cfe7aec63e"
+    }
+  },
+  {
+    "name": "vsimd",
+    "version": "0.8.0",
+    "license": "MIT",
+    "repository": "https://github.com/Nugine/simd",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE": "71674605ec4c087fe9eb534e3e4f9e26eb2e4aabcd76a29fd156c6a844d44b3d"
+    },
+    "licenseSources": {
+      "LICENSE": "https://raw.githubusercontent.com/Nugine/simd/d74c030d9dc4f3cae02146d1f497ff62726ef09a/LICENSE"
+    }
+  },
+  {
+    "name": "wasi",
+    "version": "0.11.1+wasi-snapshot-preview1",
+    "license": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+    "repository": "https://github.com/bytecodealliance/wasi",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-Apache-2.0_WITH_LLVM-exception": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5",
+      "LICENSE-MIT": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+    }
+  },
+  {
+    "name": "wasm-bindgen",
+    "version": "0.2.129",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    }
+  },
+  {
+    "name": "wasm-bindgen-macro",
+    "version": "0.2.129",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/macro",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    }
+  },
+  {
+    "name": "wasm-bindgen-macro-support",
+    "version": "0.2.129",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/main/crates/macro-support",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    }
+  },
+  {
+    "name": "wasm-bindgen-shared",
+    "version": "0.2.129",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/wasm-bindgen/wasm-bindgen/tree/master/crates/shared",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "LICENSE-APACHE": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2",
+      "LICENSE-MIT": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+    }
+  },
+  {
+    "name": "windows-link",
+    "version": "0.2.1",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows-sys",
+    "version": "0.52.0",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows-sys",
+    "version": "0.61.2",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows-targets",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows_aarch64_gnullvm",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows_aarch64_msvc",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows_i686_gnu",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows_i686_gnullvm",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows_i686_msvc",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows_x86_64_gnu",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows_x86_64_gnullvm",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  },
+  {
+    "name": "windows_x86_64_msvc",
+    "version": "0.52.6",
+    "license": "MIT OR Apache-2.0",
+    "repository": "https://github.com/microsoft/windows-rs",
+    "source": "registry+https://github.com/rust-lang/crates.io-index",
+    "licenseFiles": {
+      "license-apache-2.0": "c16f8dcf1a368b83be78d826ea23de4079fe1b4469a0ab9ee20563f37ff3d44b",
+      "license-mit": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383"
+    }
+  }
+]

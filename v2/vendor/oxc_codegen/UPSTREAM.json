@@ -1,0 +1,28 @@
+{
+  "crate": "oxc_codegen",
+  "version": "0.58.0",
+  "repository": "https://github.com/oxc-project/oxc",
+  "commit": "38d13022674a47cd5fff2f659ee30adb67e5af7f",
+  "licenseUrl": "https://raw.githubusercontent.com/oxc-project/oxc/38d13022674a47cd5fff2f659ee30adb67e5af7f/LICENSE",
+  "licenseSha256": "95ced5ecf1133fbf41d409b5555c86c344f83f3b019926057ddbc07cfdcc27b3",
+  "originalFiles": {
+    ".cargo_vcs_info.json": "abaa55d97756a87b67328c66aea4e4c300d802f38a6e5f1a3415fbd0fa5a48d4",
+    "Cargo.lock": "28a6feb6e352d20455b3f3d1003ac1930a450fb5432441e956ba00ef580b0698",
+    "Cargo.toml": "01f5724168466ab2c760bcdaf308b27d4777a4600f19cf1d51ccda0dfa3a85b6",
+    "Cargo.toml.orig": "2db86e507ec67fec9a9ad34cbfd1fbec6bffc528bcb738c86f7c46deed5c4190",
+    "examples/codegen.rs": "ecb3687c8703dc0b07f68df4cc397c0ac52e9e0b2f90ca34d975c02d4021003c",
+    "examples/sourcemap.rs": "ed08e8796d20cc289d1ac0e62e6f99841c6b980a88482a0423692a36387f7b20",
+    "src/binary_expr_visitor.rs": "1c6805c59bfe731bfd7a8e80d4ff52813384ec3d6b5a38df94c54fc299344a6c",
+    "src/comment.rs": "bf04fef3c8854005c7e4dd513375d97f43abc536fe75b94e3ece93492dd532d1",
+    "src/context.rs": "ecd96a5062e631e527688910668b9092c8685b275dcf89919df3484c06d358ea",
+    "src/gen.rs": "b7aac21b83017333510554c5a18601228a95fa77cd091002ffa4970d525279f1",
+    "src/lib.rs": "f5da427c254420aa8ac63fd9c6c77310758a3578f6440d776145ac68a66c6b68",
+    "src/operator.rs": "8faf02bd424525bd83fdc84ff723da223ec896871a03f80281580e6213ba1f96",
+    "src/options.rs": "11442f0516e6c163a21845855f3b0f1cd22c1db6aed03b5e3ff3c99f7babe17b",
+    "src/sourcemap_builder.rs": "998e2bbfef862b2ca09811c7032fb34f4b6cc68943b31d11a1d74968d9cfbf7c"
+  },
+  "archive": {
+    "url": "https://crates.io/api/v1/crates/oxc_codegen/0.58.0/download",
+    "sha256": "c5a6662210485fc557bd26bcbfa5441fac4d74d632297caee5e01d886bf17599"
+  }
+}

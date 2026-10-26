@@ -1,0 +1,118 @@
+--- a/src-tauri/src/native_core/extensions/registry.rs
++++ b/src-tauri/src/native_core/extensions/registry.rs
+@@ -14,6 +14,7 @@
+     id: String,
+     slug: String,
+     path: PathBuf,
++    package_dir: Option<PathBuf>,
+     manifest: Value,
+     data_dir: PathBuf,
+ }
+@@ -73,9 +74,13 @@
+             };
+             let Ok(slug) = slug(name) else { continue };
+             let native = name.starts_with("com.tezbar.native.");
++            let mut package_dir = None;
+             let mut manifest = if native {
+                 match super::process_install::resolve(ctx, name) {
+-                    Ok(package) => package.manifest,
++                    Ok(package) => {
++                        package_dir = Some(package.dir);
++                        package.manifest
++                    },
+                     Err(error) => {
+                         // A damaged canonical directory is NEVER a Raycast package.
+                         let mut value = read_json(&path.join("package.json"))
+@@ -108,6 +113,7 @@
+                 id,
+                 slug,
+                 path,
++                package_dir,
+                 manifest,
+                 data_dir: ctx.paths.data_dir.clone(),
+             });
+@@ -125,6 +131,16 @@
+             entry.slug == wanted && entry.id.starts_with("com.tezbar.native.") == canonical
+         })
+         .ok_or_else(|| format!("Extension is not installed: {id}"))
++}
++
++
++pub(super) fn replacement_id(ctx: &CoreContext, requested: &str) -> Result<Option<String>, String> {
++    let matches: HashSet<String> = collect(ctx).into_iter()
++        .filter(|entry| entry.id.starts_with("com.tezbar.native.") && entry.manifest["healthError"].is_null())
++        .filter(|entry| entry.manifest["replaces"].as_array().is_some_and(|aliases| aliases.iter().any(|alias| alias.as_str() == Some(requested))))
++        .map(|entry| entry.id).collect();
++    if matches.len() > 1 { return Err("Ambiguous installed extension replacement".into()); }
++    Ok(matches.into_iter().next())
+ }
+ 
+ /// Native implementations use the same discovery and platform rules as the launcher.
+@@ -244,6 +260,12 @@
+     {
+         return None;
+     }
++    if extension.id.starts_with("com.tezbar.native.") {
++        let package = extension.package_dir.as_ref()?;
++        extension.manifest["files"].as_object()?.get(relative.to_str()?)?;
++        let path = package.join(relative);
++        return path.is_file().then(|| path.to_string_lossy().into_owned());
++    }
+     let mut candidates = vec![
+         extension.path.join(relative),
+         extension.path.join("assets").join(relative),
+@@ -307,6 +329,12 @@
+         .any(|c| !matches!(c, Component::Normal(_)))
+     {
+         return None;
++    }
++    if extension.id.starts_with("com.tezbar.native.") {
++        let package = extension.package_dir.as_ref()?;
++        extension.manifest["files"].as_object()?.get(relative.to_str()?)?;
++        let path = package.join(relative);
++        return path.is_file().then(|| path.to_string_lossy().into_owned());
+     }
+     let mut candidates = vec![
+         extension.path.join(relative),
+@@ -575,6 +603,7 @@
+         id: id.into(),
+         slug: slug(id)?,
+         path,
++        package_dir: None,
+         manifest: Value::Null,
+         data_dir: ctx.paths.data_dir.clone(),
+     };
+--- a/src-tauri/src/native_core/extensions/native.rs
++++ b/src-tauri/src/native_core/extensions/native.rs
+@@ -615,7 +615,7 @@
+             self.dispatch(channel, body, id).await.map(Some)
+         } else if channel == "extension:run-command" {
+             let requested = body["extensionId"].as_str().unwrap_or("");
+-            if requested.starts_with("com.tezbar.native.") || v2_runtime::slug(requested).is_some()
++            if requested.starts_with("com.tezbar.") || requested.starts_with("raycast.") || v2_runtime::slug(requested).is_some()
+             {
+                 self.launch(ctx, files, body).await
+             } else {
+@@ -643,8 +643,12 @@
+         let command = body["commandName"].as_str().ok_or("Missing commandName")?;
+         let canonical = if requested.starts_with("com.tezbar.native.") {
+             requested.to_string()
++        } else if let Some(canonical) = registry::replacement_id(ctx, requested)? {
++            canonical
++        } else if let Some(slug) = v2_runtime::slug(requested) {
++            v2_runtime::canonical_id(slug)
+         } else {
+-            v2_runtime::canonical_id(v2_runtime::slug(requested).ok_or("Unknown extension")?)
++            return Ok(None);
+         };
+         let slot = self.slot(&canonical);
+         let mut generation = slot.generation.subscribe();
+@@ -664,7 +668,7 @@
+             .map_err(|e| e.to_string())??
+         };
+         let Some(preferences) = preferences else {
+-            if requested.starts_with("raycast.") {
++            if !requested.starts_with("com.tezbar.native.") {
+                 return Ok(None);
+             }
+             // Surface schema-2/tamper/target errors, not a false legacy launch.
