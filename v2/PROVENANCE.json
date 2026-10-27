@@ -1,0 +1,64 @@
+{
+  "sourceCommit": "f80a47f6d462b29e71f9c282bce8e84bd6ef923e",
+  "hostReadOnlyCommit": "ea100cee3f69711de12485ba061950c5fc65258f",
+  "sdk": {
+    "version": "0.1.1",
+    "protocol": 1,
+    "revision": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+    "source": "https://github.com/almatkai/tezbar-extension-sdk-rust",
+    "pathDependency": false
+  },
+  "compiler": {
+    "language": "Rust",
+    "MSRV": "1.85",
+    "oxcVersion": "0.58.0",
+    "forkProvenance": [
+      "vendor/oxc_codegen/UPSTREAM.json",
+      "vendor/oxc_transformer/UPSTREAM.json"
+    ],
+    "submittedCodeExecuted": false,
+    "runtimeJavaScriptEngine": false
+  },
+  "oracle": {
+    "filename": "clipboard.ts",
+    "configuration": "actual V1 helper; presetTypescript only",
+    "transformCases": 343,
+    "sourceFlowCases": 16,
+    "originalPrefixes": "evidence/ROUND2_BASELINE.json",
+    "fixtureSha256": {
+      "compiler-cases.json": "40211d577cde529c6fe83211c7c2cb7c54a4ef240028a72e26740eddce6f1d5d",
+      "locked-babel.json": "421604edf4e3ca3700ad86939b43024e9004964f5d8187a190b4abe00b5ea5bf",
+      "locked-source-flow.json": "aeb4376aa25521070735783c8b4f03274a8ad27cf1caef3566d472560f664c95"
+    },
+    "actualSourceCommandComparisons": 686
+  },
+  "hostPrerequisites": {
+    "applied": false,
+    "patches": [
+      "host-prerequisites/0001-dispose-completed-action-no-view.patch",
+      "host-prerequisites/0002-verified-version-icons-and-installed-aliases.patch",
+      "host-prerequisites/0003-coherent-clipboard-content.patch"
+    ],
+    "clipboardContract": {
+      "request": {
+        "format": "content"
+      },
+      "response": "{text:string|null,hasFiles:boolean}",
+      "legacyStringAccepted": false
+    }
+  },
+  "iconSha256": "85b7bf3d3bc91f315896d165b95e6d40ef72ac71a6ef0e861f1e81a4f675d5bd",
+  "artifacts": {},
+  "verification": [
+    {
+      "platform": "macOS",
+      "state": "not-run",
+      "note": "Live desktop selection/clipboard/focus/paste and GUI acceptance have not been run; isolated fake-host process tests do not verify OS behavior."
+    },
+    {
+      "platform": "Windows",
+      "state": "not-run",
+      "note": "Live desktop selection/clipboard/focus/paste and GUI acceptance have not been run; isolated fake-host process tests do not verify OS behavior."
+    }
+  ]
+}

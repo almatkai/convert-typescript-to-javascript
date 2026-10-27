@@ -1,0 +1,12 @@
+--- a/src/renderer/ExtensionRuntimeView.tsx
++++ b/src/renderer/ExtensionRuntimeView.tsx
+@@ -661,7 +661,8 @@
+               if (notice) showActionNotice(notice.message, isFormSurface)
+ 
+               if (result.mode === 'no-view') {
+-                setState((prev) => ({ ...prev, message: undefined }))
++                await window.tezbar.extensionDisposeSession({ sessionId: state.sessionId })
++                if (currentSession.current === sessionOwner) onBack()
+                 return
+               }
+ 

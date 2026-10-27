@@ -1,0 +1,32 @@
+Convert TypeScript to JavaScript — native Rust v2 review candidate
+Original Tezbar V1 source: almatkai/convert-typescript-to-javascript
+f80a47f6d462b29e71f9c282bce8e84bd6ef923e, existing MIT license retained verbatim.
+Original upstream: raycast/extensions at
+6734d85992290066fd31a7f5bee3cca3d3545a1a,
+extensions/convert-typescript-to-javascript.
+The original icon is unchanged; see evidence/icon.json and licenses/raycast-extensions-LICENSE.
+
+Native SDK: almatkai/tezbar-extension-sdk-rust
+HTTPS revision e955911f0bf5b558f9d3eb5183df0adc95c22af2, crate 0.1.1, Apache-2.0.
+OXC parser/semantic/TypeScript transformer 0.58.0: MIT.
+The private codegen fork is based on oxc_codegen 0.58.0 at
+38d13022674a47cd5fff2f659ee30adb67e5af7f, modified for Babel-compatible
+formatting and comment attachment; its authentic MIT license and original file
+hashes are retained under vendor/oxc_codegen. Upstream codegen acknowledges
+adaptation from esbuild (see its source header); no new grant is asserted here.
+The private transformer fork is based on oxc_transformer 0.58.0 at
+38d13022674a47cd5fff2f659ee30adb67e5af7f. It uses semantic enum table keys,
+Babel-compatible template/nonfinite/purity/reverse-map/auto-increment seams,
+and an explicit JSX return lifetime; other source layout changes are rustfmt.
+Authentic MIT license and original file hashes are in vendor/oxc_transformer.
+r-efi 6.0.0 AUTHORS includes its copyright notices and MIT grant and is retained
+verbatim. assert-unchecked 0.1.2 declares MIT, but its exact published/upstream
+trees contain no grant text; authentic source/declaration/tree evidence is kept.
+Resolved dependency license declarations and authentic notice bytes are retained
+in licenses/dependencies.json and licenses/dependencies/. Cargo.lock pins sources.
+Babel is a QA-only oracle and is absent from the production executable/archive.
+
+Host snapshots are audit references at ea100cee3f69711de12485ba061950c5fc65258f,
+not code linked into the product. Host prerequisites are unapplied patches.
+A development archive is not publication, installation, platform acceptance, or
+proof of universal Babel parity. See README.md and VALIDATION.md in source.

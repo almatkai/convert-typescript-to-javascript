@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 3,
+  "id": "com.tezbar.native.convert-typescript-to-javascript",
+  "slug": "convert-typescript-to-javascript",
+  "name": "Convert TypeScript to JavaScript",
+  "version": "2.0.0",
+  "description": "Convert clipboard or selected TypeScript into JavaScript using a standalone native Rust process. Review candidate: Babel parity gate is mandatory.",
+  "icon": "resources/icon.png",
+  "author": "almatkai",
+  "runtime": "rust",
+  "execution": "process",
+  "protocolVersion": 1,
+  "repository": "https://github.com/almatkai/convert-typescript-to-javascript",
+  "platforms": [
+    "macOS",
+    "Windows"
+  ],
+  "commands": [
+    {
+      "name": "paste-from-clipboard",
+      "title": "Convert & Paste as JavaScript",
+      "mode": "no-view",
+      "runtime": "rust",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "timeoutMs": 30000,
+      "refreshMs": null,
+      "concurrency": "reject-while-busy"
+    },
+    {
+      "name": "copy-to-clipboard",
+      "title": "Copy TypeScript as JavaScript",
+      "mode": "no-view",
+      "runtime": "rust",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "timeoutMs": 30000,
+      "refreshMs": null,
+      "concurrency": "reject-while-busy"
+    }
+  ],
+  "preferences": [],
+  "replaces": [
+    "com.tezbar.convert-typescript-to-javascript",
+    "raycast.convert-typescript-to-javascript"
+  ],
+  "capabilities": [
+    "clipboard.read",
+    "selection.read",
+    "clipboard.write",
+    "clipboard.pasteText"
+  ],
+  "artifacts": {},
+  "verification": [
+    {
+      "platform": "macOS",
+      "state": "not-run",
+      "note": "Live desktop selection/clipboard/focus/paste and GUI acceptance have not been run; isolated fake-host process tests do not verify OS behavior."
+    },
+    {
+      "platform": "Windows",
+      "state": "not-run",
+      "note": "Live desktop selection/clipboard/focus/paste and GUI acceptance have not been run; isolated fake-host process tests do not verify OS behavior."
+    }
+  ]
+}

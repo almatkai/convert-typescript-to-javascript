@@ -1,0 +1,68 @@
+{
+  "sha": "d01c962b347e1957dd25f5df0669c4a68e483d1f",
+  "url": "https://api.github.com/repos/skmendez/assert-unchecked/git/trees/d01c962b347e1957dd25f5df0669c4a68e483d1f",
+  "tree": [
+    {
+      "path": ".github",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "f4f8e50fb0f5736c37d4fc615ba9a792918800c2",
+      "url": "https://api.github.com/repos/skmendez/assert-unchecked/git/trees/f4f8e50fb0f5736c37d4fc615ba9a792918800c2"
+    },
+    {
+      "path": ".github/workflows",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "a326e49a7d701d9e95239a5b93c41df13700813c",
+      "url": "https://api.github.com/repos/skmendez/assert-unchecked/git/trees/a326e49a7d701d9e95239a5b93c41df13700813c"
+    },
+    {
+      "path": ".github/workflows/rust.yml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "52d23397a6ae5bed66a7d434d75720335557704a",
+      "size": 479,
+      "url": "https://api.github.com/repos/skmendez/assert-unchecked/git/blobs/52d23397a6ae5bed66a7d434d75720335557704a"
+    },
+    {
+      "path": ".gitignore",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "96ef6c0b944e24fc22f51f18136cd62ffd5b0b8f",
+      "size": 19,
+      "url": "https://api.github.com/repos/skmendez/assert-unchecked/git/blobs/96ef6c0b944e24fc22f51f18136cd62ffd5b0b8f"
+    },
+    {
+      "path": "Cargo.toml",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "60c78555ead88c2e9cf6acd9f922f53d2cf93e8b",
+      "size": 567,
+      "url": "https://api.github.com/repos/skmendez/assert-unchecked/git/blobs/60c78555ead88c2e9cf6acd9f922f53d2cf93e8b"
+    },
+    {
+      "path": "README.md",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "f42da192611d1206955f779f9c65cc3cad8dd2f1",
+      "size": 2509,
+      "url": "https://api.github.com/repos/skmendez/assert-unchecked/git/blobs/f42da192611d1206955f779f9c65cc3cad8dd2f1"
+    },
+    {
+      "path": "src",
+      "mode": "040000",
+      "type": "tree",
+      "sha": "9d695d2a3fbcc3d5d2c8634004f4d4de3a298055",
+      "url": "https://api.github.com/repos/skmendez/assert-unchecked/git/trees/9d695d2a3fbcc3d5d2c8634004f4d4de3a298055"
+    },
+    {
+      "path": "src/lib.rs",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "8fd42c1bce7e2cb1b610c4e3562dc3bbc4e0428f",
+      "size": 12757,
+      "url": "https://api.github.com/repos/skmendez/assert-unchecked/git/blobs/8fd42c1bce7e2cb1b610c4e3562dc3bbc4e0428f"
+    }
+  ],
+  "truncated": false
+}

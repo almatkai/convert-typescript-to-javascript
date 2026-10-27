@@ -1,0 +1,20 @@
+{
+  "priorInventorySha256": "e5bd008f00005b7cc6e4124a3c6d00613647400030ca5df9faf825f2365b9598",
+  "retainedOraclePrefixes": {
+    "tests/compiler-cases.json": {
+      "retainedOriginalCount": 264,
+      "originalSerializedSha256": "27a4fa82d0321a517267acff71ade9fae7ad7e773b0c7d31e20f8db325bf9c81",
+      "expandedCount": 343
+    },
+    "tests/locked-babel.json": {
+      "retainedOriginalCount": 264,
+      "originalSerializedSha256": "e174324cc54e4dd715c41c206fd66cc0e7c66a55e3103133f7f536ff0ddfc3d1",
+      "expandedCount": 343
+    },
+    "tests/locked-source-flow.json": {
+      "retainedOriginalCount": 11,
+      "originalSerializedSha256": "4bfcfbd2d77e38c34a5d2740a91776a1974c8eb70a5c3dcddfdab69d9a08af0b",
+      "expandedCount": 16
+    }
+  }
+}

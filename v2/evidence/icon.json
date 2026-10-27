@@ -1,0 +1,8 @@
+{
+  "url": "https://raw.githubusercontent.com/raycast/extensions/6734d85992290066fd31a7f5bee3cca3d3545a1a/extensions/convert-typescript-to-javascript/assets/icon.png",
+  "sha256": "85b7bf3d3bc91f315896d165b95e6d40ef72ac71a6ef0e861f1e81a4f675d5bd",
+  "v1Sha256": "85b7bf3d3bc91f315896d165b95e6d40ef72ac71a6ef0e861f1e81a4f675d5bd",
+  "download": "HTTPS fetched into memory before writing resources/icon.png",
+  "upstreamLicenseUrl": "https://raw.githubusercontent.com/raycast/extensions/6734d85992290066fd31a7f5bee3cca3d3545a1a/LICENSE",
+  "upstreamLicenseSha256": "7f727f8b20cdd0e65f84e70b9cac2fce337dcecee4dc88955eb012ea27f02755"
+}

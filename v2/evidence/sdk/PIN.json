@@ -1,0 +1,16 @@
+{
+  "commit": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+  "files": {
+    "SDK_API.md": "73945c65d763a82ee1bd64b2f30418f8aaec2e75966d71d7b774e7f7e40f098e",
+    "PROTOCOL.md": "0bc474c2e79e6e3f46ad2d577f83144ad69bd87cb17b74600a17178bcc257371",
+    "HOST_INTEGRATION.md": "88e6ca0c1090bcdf5d5501583e52e3eb7b0a369f4fea17ce4b01616c2f69d9a8",
+    "src/lib.rs": "7ffb2da74cfcf91f428453cf90594baa79b21251b7df77756348e0acda79cd16",
+    "src/context.rs": "9d8498bf3799690703c0a4e70fed2c9356850cc0c4e35370104fd09898c09efa",
+    "src/runner.rs": "975350f717db0a3bf9cac11e9efd733719d2148544c2e38d82758c92a0a88053",
+    "src/stdio.rs": "787a82df188796d492b520bbdb37efee41f7e7214f3aa7e167bd468074be25c9",
+    "LICENSE": "0ed6b1b2760294d4aaaa45be38e166fcc0168e1dd5190423c096fcbe1c94afbf",
+    "NOTICE": "aa04ab6115cfc2e2172b0613013611a59dc487c70f3e2dfbd2f135326d703c74",
+    "Cargo.toml": "f3f6c5a49f92dced2ff7b8ea9c5942d826a8a6c3cdade67f62003ded86b506dd",
+    "Cargo.lock": "9903aa991794a57df3eeaf61827a024244cb9b56fe280ba16f357c78db7f858b"
+  }
+}

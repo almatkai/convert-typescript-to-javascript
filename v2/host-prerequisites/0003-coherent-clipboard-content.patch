@@ -1,0 +1,142 @@
+--- a/src-tauri/src/native_core/launcher/clipboard_native.rs
++++ b/src-tauri/src/native_core/launcher/clipboard_native.rs
+@@ -50,6 +50,46 @@
+         unsafe {
+             let _p = Pool::new();
+             Some(s0::<isize>(board(), "changeCount") as u64)
++        }
++    }
++    // Read metadata and text between change-count fences on the same board.
++    // No URLs or file paths are read; a file flavor alone trips the guard.
++    pub fn content() -> Result<(Option<String>, bool), String> {
++        unsafe {
++            let _p = Pool::new();
++            let pb = board();
++            if pb.is_null() { return Err("Clipboard unavailable".into()); }
++            let before: isize = s0(pb, "changeCount");
++            let types: Id = s0(pb, "types");
++            if types.is_null() { return Err("Clipboard metadata unavailable".into()); }
++            let count: usize = s0(types, "count");
++            if count > 4096 { return Err("Clipboard metadata exceeds bound".into()); }
++            let mut has_files = false;
++            let mut has_text = false;
++            for i in 0..count {
++                let kind: Id = s1(types, "objectAtIndex:", i);
++                if kind.is_null() { return Err("Invalid clipboard metadata".into()); }
++                let raw: *const c_char = s0(kind, "UTF8String");
++                if raw.is_null() { return Err("Invalid clipboard metadata".into()); }
++                let kind = CStr::from_ptr(raw).to_str().map_err(|_| "Invalid clipboard metadata")?;
++                has_files |= matches!(kind, "public.file-url" | "NSFilenamesPboardType" | "com.apple.pasteboard.promised-file-url" | "NSFilesPromisePboardType");
++                has_text |= kind == "public.utf8-plain-text";
++            }
++            let text = if has_text {
++                let key = CString::new("public.utf8-plain-text").unwrap();
++                let key: Id = s1(class("NSString"), "stringWithUTF8String:", key.as_ptr());
++                let value: Id = s1(pb, "stringForType:", key);
++                if value.is_null() { return Err("Clipboard text unavailable".into()); }
++                let raw: *const c_char = s0(value, "UTF8String");
++                if raw.is_null() { return Err("Clipboard text unavailable".into()); }
++                let len: usize = s1(value, "lengthOfBytesUsingEncoding:", 4usize);
++                if len > 16 * 1024 * 1024 { return Err("Clipboard text exceeds bound".into()); }
++                let bytes = std::slice::from_raw_parts(raw.cast::<u8>(), len);
++                Some(std::str::from_utf8(bytes).map_err(|_| "Invalid clipboard text")?.to_owned())
++            } else { None };
++            let after: isize = s0(pb, "changeCount");
++            if before != after { return Err("Clipboard changed during read".into()); }
++            Ok((text, has_files))
+         }
+     }
+     pub fn files() -> Vec<String> {
+@@ -108,6 +148,7 @@
+     #[link(name = "user32")]
+     extern "system" {
+         fn GetClipboardSequenceNumber() -> u32;
++        fn IsClipboardFormatAvailable(format: u32) -> i32;
+         fn OpenClipboard(h: Handle) -> i32;
+         fn CloseClipboard() -> i32;
+         fn EmptyClipboard() -> i32;
+@@ -135,6 +176,7 @@
+     }
+     #[link(name = "kernel32")]
+     extern "system" {
++        fn GlobalSize(h: Handle) -> usize;
+         fn GlobalAlloc(flags: u32, size: usize) -> Handle;
+         fn GlobalLock(h: Handle) -> Handle;
+         fn GlobalUnlock(h: Handle) -> i32;
+@@ -185,6 +227,30 @@
+     }
+     pub fn sequence() -> Option<u64> {
+         Some(unsafe { GetClipboardSequenceNumber() } as u64)
++    }
++    // OpenClipboard excludes concurrent clipboard writers for this snapshot.
++    pub fn content() -> Result<(Option<String>, bool), String> {
++        unsafe {
++            if OpenClipboard(std::ptr::null_mut()) == 0 { return Err("Clipboard is busy".into()); }
++            let _b = Board;
++            let has_files = IsClipboardFormatAvailable(15) != 0; // CF_HDROP metadata only
++            let text = if IsClipboardFormatAvailable(13) != 0 { // CF_UNICODETEXT
++                let handle = GetClipboardData(13);
++                if handle.is_null() { return Err("Clipboard text unavailable".into()); }
++                let size = GlobalSize(handle);
++                if size == 0 || size > 16 * 1024 * 1024 || size % 2 != 0 { return Err("Invalid clipboard text size".into()); }
++                let ptr = GlobalLock(handle) as *const u16;
++                if ptr.is_null() { return Err("Clipboard text unavailable".into()); }
++                // Unlock on every conversion/validation path.
++                let data = std::slice::from_raw_parts(ptr, size / 2);
++                let result = data.iter().position(|c| *c == 0)
++                    .ok_or_else(|| "Unterminated clipboard text".to_owned())
++                    .and_then(|end| String::from_utf16(&data[..end]).map_err(|_| "Invalid clipboard text".into()));
++                GlobalUnlock(handle);
++                Some(result?)
++            } else { None };
++            Ok((text, has_files))
++        }
+     }
+     pub fn files() -> Vec<String> {
+         unsafe {
+@@ -257,6 +323,9 @@
+ }
+ #[cfg(not(any(target_os = "macos", target_os = "windows")))]
+ mod platform {
++    pub fn content() -> Result<(Option<String>, bool), String> {
++        Err("Clipboard content snapshots unavailable on this platform".into())
++    }
+     pub fn sequence() -> Option<u64> {
+         None
+     }
+--- a/src-tauri/src/native_core/extensions/process_host.rs
++++ b/src-tauri/src/native_core/extensions/process_host.rs
+@@ -231,7 +231,7 @@
+                 }Ok(json!(true))
+             },
+             "host.notifications.remove"=>{let id=string(&params,"id")?;super::process_notifications::remove(&self.scoped(id)?).await?;self.resources.lock().map_err(|e|e.to_string())?.notifications.remove(id);p.changed.notify_one();Ok(json!(true))},
+-            "host.clipboard.read"=>match params["format"].as_str(){None|Some("text")=>self.ctx.request("clipboard:read",vec![]).await,Some("image")=>read_clipboard_image().await,_=>Err("Unsupported clipboard format".into())},
++            "host.clipboard.read"=>match params["format"].as_str(){None|Some("text")=>self.ctx.request("clipboard:read",vec![]).await,Some("content")=>read_clipboard_content().await,Some("image")=>read_clipboard_image().await,_=>Err("Unsupported clipboard format".into())},
+             "host.clipboard.write"=>{
+                 let text=string(&params,"text")?;
+                 if let Some(html)=params.get("html"){if !html.is_string(){return Err("Clipboard HTML must be text".into());}self.ctx.request("core:platform:clipboard-write",vec![json!({"text":text,"html":html})]).await}
+@@ -648,6 +648,14 @@
+     }
+     true
+ }
++/// Opt-in coherent content snapshot; legacy default/text reads retain STRING.
++async fn read_clipboard_content() -> CoreResult {
++    tokio::task::spawn_blocking(|| {
++        let (text, has_files) = crate::native_core::launcher::clipboard_native::content()?;
++        Ok(json!({"text":text,"hasFiles":has_files}))
++    }).await.map_err(|e| e.to_string())?
++}
++
+ async fn read_clipboard_image() -> CoreResult {
+     tokio::task::spawn_blocking(|| {
+         let mut clipboard = arboard::Clipboard::new().map_err(|e| e.to_string())?;
+--- a/src-tauri/src/native_core/launcher/mod.rs
++++ b/src-tauri/src/native_core/launcher/mod.rs
+@@ -1,6 +1,6 @@
+ //! Native launcher search, local content, clipboard and terminal metadata.
+ mod clipboard;
+-mod clipboard_native;
++pub(crate) mod clipboard_native;
+ mod db;
+ mod providers;
+ mod storage;
